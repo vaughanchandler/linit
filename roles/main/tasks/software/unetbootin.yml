@@ -1,0 +1,11 @@
+---
+- name: software | unetbootin | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:gezakovacs/ppa
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | unetbootin | install package
+  package:
+    name: unetbootin
+  when: ansible_os_family == "Debian"

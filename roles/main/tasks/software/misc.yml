@@ -1,0 +1,132 @@
+---
+# These are all the packages that are available directly from default repos.
+
+- name: software | install general packages
+  tags: packages, software
+  package:
+    name:
+      - aria2
+      - dropbox
+      - gimp
+      - git
+      - htop
+      - iftop
+      - inkscape
+      - iotop
+      - jq
+      - linphone
+      - ncdu
+      - pigz
+      - remmina
+      - remmina-plugin-rdp
+      - remmina-plugin-vnc
+      - tmux
+      - tree
+      - vlc
+
+- name: software | install general dev packages
+  tags: dev, software
+  package:
+    name:
+      - apache2
+      - composer
+      - git-flow
+      - imagemagick
+      - memcached
+      - mysql-client
+      - mysql-server
+      - nodejs
+      - npm
+      - php
+      - php{{ php_version }}-cli
+      - php{{ php_version }}-curl
+      - php{{ php_version }}-gd
+      - php{{ php_version }}-intl
+      - php{{ php_version }}-json
+      - php{{ php_version }}-mbstring
+      - php{{ php_version }}-memcache
+      - php{{ php_version }}-opcache
+      - php{{ php_version }}-pdo
+      - php{{ php_version }}-pdo-mysql
+      - php{{ php_version }}-phar
+      - php{{ php_version }}-simplexml
+      - php{{ php_version }}-soap
+      - php{{ php_version }}-xdebug
+      - php{{ php_version }}-yaml
+      - php{{ php_version }}-zip
+      - phpunit
+      - python3-pip
+
+- name: software | install general dev/devops packages
+  tags: dev, devops, software
+  package:
+    name:
+      - lynx
+      - meld
+      - virtualenv
+
+- name: software | install general devops packages
+  tags: devops, software
+  package:
+    name:
+      - ansible
+      - clusterssh
+      - vagrant
+
+- name: software | install general genealogy packages
+  tags: genealogy, software
+  package:
+    name:
+      - gir1.2-gexiv2-0.10
+      - gir1.2-goocanvas-2.0
+      - gir1.2-osmgpsmap-1.0
+      - gramps
+      - graphviz
+      - libgoocanvas-2.0-9
+      - libgoocanvas-2.0-common
+      - libgoocanvas-2.0-dev
+      - libosmgpsmap-1.0-1
+      - python3-pil
+      - python3-pygraphviz
+      - sqlite3
+
+- name: software | install general network packages
+  tags: network, software
+  package:
+    name:
+      - clusterssh
+      - fping
+      - ipcalc
+      - mtr
+      - nbtscan
+      - traceroute
+      - whois
+
+- name: software | install general network/pentest packages
+  tags: network, pentest, software
+  package:
+    name:
+      - httrack
+      - netcat
+      - nmap
+      - wireshark
+
+- name: software | install general pentest packages
+  tags: pentest, software
+  package:
+    name:
+      - aircrack-ng
+      - dhcpig
+      - ettercap-graphical
+      - hashcat
+      - hydra
+      - hydra-gtk
+      - john
+      - kismet
+      - slowhttptest
+
+- name: software | install general ssh packages
+  tags: ssh, software
+  package:
+    name:
+      - openssh-server

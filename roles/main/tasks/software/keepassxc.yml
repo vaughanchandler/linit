@@ -1,0 +1,11 @@
+---
+- name: software | keepassxc | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:phoerious/keepassxc
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | keepassxc | install package
+  package:
+    name: keepassxc
+  when: ansible_os_family == "Debian"

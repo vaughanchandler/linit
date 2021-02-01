@@ -1,0 +1,17 @@
+---
+- name: software | skype | add repository key
+  apt_key:
+    url: https://repo.skype.com/data/SKYPE-GPG-KEY
+  when: ansible_os_family == "Debian"
+
+- name: software | skype | add repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://repo.skype.com/deb stable main"
+    filename: skype-stable
+  when: ansible_os_family == "Debian"
+  # We use skype-stable as the filename because during installation the Skype deb file would add the repo with that name anyway.
+
+- name: software | skype | install package
+  package:
+    name: skypeforlinux
+  when: ansible_os_family == "Debian"

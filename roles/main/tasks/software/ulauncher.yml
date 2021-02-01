@@ -1,0 +1,11 @@
+---
+- name: software | ulauncher | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:agornostal/ulauncher
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | ulauncher | install package
+  package:
+    name: ulauncher
+  when: ansible_os_family == "Debian"

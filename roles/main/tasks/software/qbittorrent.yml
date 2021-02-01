@@ -1,0 +1,11 @@
+---
+- name: software | qbittorrent | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:qbittorrent-team/qbittorrent-stable
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | qbittorrent | install package
+  package:
+    name: qbittorrent
+  when: ansible_os_family == "Debian"
