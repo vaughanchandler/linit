@@ -1,0 +1,45 @@
+---
+
+# Shows facts and ansible vars
+# ansible-playbook debug.yml
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+  - name: Display facts
+    ansible.builtin.debug:
+      var: ansible_facts
+
+  - name: Display ansible_distribution
+    ansible.builtin.debug:
+      var: ansible_distribution
+
+  - name: Display ansible_os_family
+    ansible.builtin.debug:
+      var: ansible_os_family
+
+  - name: Display ansible_distribution_release
+    ansible.builtin.debug:
+      var: ansible_distribution_release
+
+  - name: Display ansible_distribution_major_version
+    ansible.builtin.debug:
+      var: ansible_distribution_major_version
+
+  - name: Display ansible_distribution_version
+    ansible.builtin.debug:
+      var: ansible_distribution_version
+
+  - name: Display ansible_kernel
+    ansible.builtin.debug:
+      var: ansible_kernel
+
+  - name: Display ansible_product_name
+    ansible.builtin.debug:
+      var: ansible_product_name
+
+  - name: Display ansible_system_vendor
+    ansible.builtin.debug:
+      var: ansible_system_vendor
