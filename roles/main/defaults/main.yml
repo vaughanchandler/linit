@@ -1,0 +1,4 @@
+php_version: 7.4
+
+# Override the Ubuntu code base for Linux Mint 19+
+distribution_codebase: "{% if ansible_distribution == 'Linux Mint' %}{% if ansible_distribution_major_version == '19' %}bionic{% else %}focal{% endif %}{% else %}{{ ansible_distribution_release }}{% endif %}"

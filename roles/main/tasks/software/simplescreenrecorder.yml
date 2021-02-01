@@ -1,0 +1,11 @@
+---
+- name: software | simplescreenrecorder | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:maarten-baert/simplescreenrecorder
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | simplescreenrecorder | install package
+  package:
+    name: simplescreenrecorder
+  when: ansible_os_family == "Debian"

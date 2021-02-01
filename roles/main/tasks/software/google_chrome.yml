@@ -1,0 +1,16 @@
+---
+- name: software | google-chrome | add repository key
+  apt_key:
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+  when: ansible_os_family == "Debian"
+
+- name: software | google-chrome | add repository
+  apt_repository:
+    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    filename: google-chrome
+  when: ansible_os_family == "Debian"
+
+- name: software | google-chrome | install package
+  package:
+    name: google-chrome-stable
+  when: ansible_os_family == "Debian"

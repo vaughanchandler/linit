@@ -1,0 +1,5 @@
+---
+- name: software | barrier | install flatpak
+  community.general.flatpak:
+    name: com.github.debauchee.barrier
+  when: ansible_os_family == 'Debian'

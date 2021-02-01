@@ -1,0 +1,11 @@
+---
+- name: software | homebank | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:mdoyen/homebank
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | homebank | install package
+  package:
+    name: homebank
+  when: ansible_os_family == "Debian"
