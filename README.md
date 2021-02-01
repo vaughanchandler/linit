@@ -15,6 +15,7 @@ Typical tags for work usage: `dev,devops,network,packages,update`
 ### Top level tags
 
 * **software** - Installs all software packages.
+* **ssh** - Installs SSH public keys.
 * **upgrade** - Upgrades all installed packages.
 
 ### Second level tags
@@ -28,4 +29,4 @@ These tags are subsets of the **software** tag:
 * **network** - Installs useful networking packages.
 * **packages** - Installs general packages that don't fall into another group.
 * **pentest** - Installs useful penetration testing packages.
-* **ssh** - Installs OpenSSH server.
+* **sshd** - Installs OpenSSH server.

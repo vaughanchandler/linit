@@ -126,7 +126,7 @@
       - slowhttptest
 
 - name: software | install general ssh packages
-  tags: ssh, software
+  tags: sshd, software
   package:
     name:
       - openssh-server

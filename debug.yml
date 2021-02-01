@@ -12,6 +12,10 @@
     ansible.builtin.debug:
       var: ansible_facts
 
+  - name: Display env
+    ansible.builtin.debug:
+      var: ansible_env
+
   - name: Display ansible_distribution
     ansible.builtin.debug:
       var: ansible_distribution

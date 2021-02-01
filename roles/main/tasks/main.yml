@@ -1,7 +1,28 @@
 ---
 
-- name: pre-run | update package cache (debian-based)
-  tags: always
+- name: ssh | create .ssh folder
+  tags: ssh
+  file:
+    path: "{{ real_home }}/.ssh"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    mode: '0700'
+    state: directory
+
+- name: ssh | install public ssh key
+  tags: ssh
+  lineinfile:
+    path: "{{ real_home }}/.ssh/authorized_keys"
+    line: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEZRKnL68aPgv2XOw8iI+LjGbDZ3dU/0E8GcLdsyhGo vaughan.codes@gmail.com"
+    regexp: vaughan.codes@gmail.com
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    mode: '0600'
+    create: yes
+    backup: yes
+
+- name: pre-software | update package cache (debian-based)
+  tags: accounting, dev, devops, genealogy, network, packages, pentest, software, sshd
   apt: update_cache=yes
   changed_when: False
   when: ansible_os_family == "Debian"
@@ -50,7 +71,7 @@
 - import_tasks: software/vscode.yml
   tags: dev, devops, software
 
-- name: post-run | upgrade installed packages
+- name: post-software | upgrade installed packages
   tags: never, upgrade
   package:
     name: "*"
