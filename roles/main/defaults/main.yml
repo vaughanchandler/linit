@@ -8,3 +8,7 @@ distribution_codebase: "{% if ansible_distribution == 'Linux Mint' %}{% if ansib
 real_user:  "{% if ansible_env['SUDO_USER'] is defined %}{{ ansible_env['SUDO_USER'] }}{% else %}{{ ansible_env['USER'] }}{% endif %}"
 real_home:  "{% if real_user == 'root' %}{% if ansible_env['USER'] == 'root' %}{{ ansible_env['HOME'] }}{% else %}/root{% endif %}{% else %}{% if ansible_env['SUDO_USER'] is defined %}/home/{{ ansible_env['SUDO_USER'] }}{% else %}{{ ansible_env['HOME'] }}{% endif %}{% endif %}"
 real_group: "{% if ansible_env['SUDO_GID'] is defined %}{{ ansible_env['SUDO_GID'] }}{% else %}{{ real_user }}{% endif %}"
+
+# Public SSH keys.
+public_keys:
+ - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEZRKnL68aPgv2XOw8iI+LjGbDZ3dU/0E8GcLdsyhGo vaughan.codes@gmail.com"

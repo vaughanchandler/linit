@@ -13,13 +13,14 @@
   tags: ssh
   lineinfile:
     path: "{{ real_home }}/.ssh/authorized_keys"
-    line: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEZRKnL68aPgv2XOw8iI+LjGbDZ3dU/0E8GcLdsyhGo vaughan.codes@gmail.com"
+    line: "{{ item }}"
     regexp: vaughan.codes@gmail.com
     owner: "{{ real_user }}"
     group: "{{ real_group }}"
     mode: '0600'
     create: yes
     backup: yes
+  loop: "{{ public_keys }}"
 
 - name: pre-software | update package cache (debian-based)
   tags: accounting, dev, devops, genealogy, network, packages, pentest, software, sshd
