@@ -72,6 +72,7 @@
     name:
       - ansible
       - clusterssh
+      - proxychains
       - vagrant
 
 - name: software | install general genealogy packages
@@ -100,6 +101,7 @@
       - ipcalc
       - mtr
       - nbtscan
+      - proxychains
       - traceroute
       - whois
 
