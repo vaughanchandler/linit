@@ -36,6 +36,9 @@
 - import_tasks: software/barrier.yml
   tags: packages, software
 
+- import_tasks: software/gitrelease.yml
+  tags: dev, devops, software
+
 - import_tasks: software/google_chrome.yml
   tags: packages, software
 

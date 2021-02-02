@@ -1,0 +1,8 @@
+---
+- name: software | gitrelease | copy script
+  copy:
+    src: usr_local_bin/gitrelease.sh
+    dest: /usr/local/bin/gitrelease
+    owner: root
+    group: root
+    mode: '0755'
