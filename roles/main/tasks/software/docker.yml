@@ -15,4 +15,6 @@
     name:
       - docker-compose
       - docker.io
+  notify:
+    - restart docker
   when: ansible_os_family == "Debian"
