@@ -15,4 +15,17 @@
     name:
       - docker-compose
       - docker.io
+  notify:
+    - restart docker
   when: ansible_os_family == "Debian"
+
+- name: software | docker | create group
+  group:
+    name: docker
+
+- name: software | docker | add user to group
+  user:
+    name: "{{ real_user }}"
+    groups: docker
+    append: yes
+  when: real_user != "root"
