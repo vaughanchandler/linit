@@ -6,11 +6,13 @@ Draws heavily from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansib
 
 ## Usage
 
-Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>]`
+General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
-Typical tags for home usage: `accounting,dev,devops,genealogy,network,packages,update`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,dev,devops,genealogy,network,packages,ufw_common,upgrade`
 
-Typical tags for work usage: `dev,devops,network,packages,update`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags dev,devops,network,packages,sshd,ufw_common,upgrade`
+
+Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] [--diff] [--check]`
 
 ### Top level tags
 
