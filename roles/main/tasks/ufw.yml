@@ -1,0 +1,96 @@
+---
+
+# The tags listed in these tasks only exist to support --list-tags since all the tasks inherit the 'ufw' tag and only one tag match is required.
+# The 'when' condition actually limits which tasks run.
+
+- name: ufw | enable
+  ufw:
+    state: enabled
+
+- name: ufw | allow barrier
+  tags: ufw_barrier
+  ufw:
+    rule: allow
+    port: '24800'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_barrier' in ansible_run_tags"
+
+- name: ufw | allow dns
+  tags: ufw_dns
+  ufw:
+    rule: allow
+    port: '53'
+    proto: udp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_dns' in ansible_run_tags"
+
+- name: ufw | allow dropbox
+  tags: ufw_common, ufw_dropbox
+  ufw:
+    rule: allow
+    port: '17500'
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_dropbox' in ansible_run_tags or 'ufw_common' in ansible_run_tags"
+
+- name: ufw | allow http
+  tags: ufw_http
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_http' in ansible_run_tags"
+
+- name: ufw | allow https
+  tags: ufw_https
+  ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_https' in ansible_run_tags"
+
+- name: ufw | allow mysql
+  tags: ufw_mysql
+  ufw:
+    rule: allow
+    port: '3306'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_mysql' in ansible_run_tags"
+
+- name: ufw | allow postgres
+  tags: ufw_postgres
+  ufw:
+    rule: allow
+    port: '5432'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_postgres' in ansible_run_tags"
+
+- name: ufw | allow ssh
+  tags: ufw_common, ufw_sshd
+  ufw:
+    rule: limit
+    port: '22'
+    proto: tcp
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_sshd' in ansible_run_tags or 'ufw_common' in ansible_run_tags"
+
+- name: ufw | allow warpinator
+  tags: ufw_common, ufw_warpinator
+  ufw:
+    rule: allow
+    port: '42000'
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_warpinator' in ansible_run_tags or ('ufw_common' in ansible_run_tags and ansible_distribution == 'Linux Mint')"

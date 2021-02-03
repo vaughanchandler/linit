@@ -12,3 +12,7 @@ real_group: "{% if ansible_env['SUDO_GID'] is defined %}{{ ansible_env['SUDO_GID
 # Public SSH keys.
 public_keys:
  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEZRKnL68aPgv2XOw8iI+LjGbDZ3dU/0E8GcLdsyhGo vaughan.codes@gmail.com"
+
+# IP addresses for firewall rules:
+trusted_ips:
+  - '192.168.0.0/25'

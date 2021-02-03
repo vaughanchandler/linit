@@ -1,5 +1,8 @@
 ---
 
+- import_tasks: ufw.yml
+  tags: ufw, ufw_common
+
 - name: ssh | create .ssh folder
   tags: ssh
   file:
