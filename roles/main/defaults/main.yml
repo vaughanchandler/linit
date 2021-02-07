@@ -16,3 +16,6 @@ public_keys:
 # IP addresses for firewall rules:
 trusted_ips:
   - '192.168.0.0/25'
+
+# Swap size (square root of RAM in GB rounded up to the nearest GB, or 1GB if the swap1 tag is present):
+intended_swap_mb: "{% if 'swap1' in ansible_run_tags %}1024{% else %}{{ ((ansible_memtotal_mb / 1024) | round(0,'ceil') | root | round(0,'ceil') | int) * 1024 }}{% endif %}"
