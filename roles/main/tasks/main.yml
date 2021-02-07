@@ -1,5 +1,8 @@
 ---
 
+- import_tasks: swap.yml
+  tags: swap, swap1
+
 - import_tasks: dconf-cinnamon.yml
   become_user: "{{ real_user }}"
   tags: dconf

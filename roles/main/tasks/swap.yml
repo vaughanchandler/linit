@@ -1,0 +1,24 @@
+---
+
+- name: swap | create {{ intended_swap_mb }} mb swap file
+  command: dd if=/dev/zero of=/swapfile bs=1M count={{ intended_swap_mb }}
+  when: ansible_swaptotal_mb < 1
+
+- name: swap | make swap
+  command: mkswap /swapfile
+  when: ansible_swaptotal_mb < 1
+
+- name: swap | add swapfile to fstab
+  lineinfile:
+    dest: /etc/fstab
+    regexp: /swapfile
+    line: /swapfile  none  swap  sw  0  0
+
+- name: swap | turn swap on
+  command: swapon -a
+  when: ansible_swaptotal_mb < 1
+
+- name: swap | set swappiness to 25
+  sysctl:
+    name: vm.swappiness
+    value: '25'
