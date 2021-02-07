@@ -1,0 +1,113 @@
+---
+
+- name: dconf-cinnamon | adjust date/time settings
+  dconf:
+    key: "/org/cinnamon/desktop/interface/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["clock-use-24h", "true"]
+    - ["clock-show-seconds", "true"]
+    - ["clock-show-date", "true"]
+    - ["first-day-of-week", "1"]
+
+- name: dconf-cinnamon | adjust desktop settings
+  dconf:
+    key: "/org/nemo/desktop/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["desktop-layout", "'false::false'"]
+
+- name: dconf-cinnamon | adjust hotcorner settings
+  dconf:
+    key: "/org/cinnamon/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["hotcorner-layout", "['scale:false:0', 'scale:false:0', 'scale:false:0', 'scale:true:0']"]
+
+- name: dconf-cinnamon | adjust keyboard settings
+  dconf:
+    key: "/org/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["gnome/libgnomekbd/keyboard/layouts", "['us', 'ru']"]
+    - ["gnome/libgnomekbd/keyboard/options", "['terminate\tterminate:ctrl_alt_bksp', 'Compose key\tcompose:rwin', 'grp\tgrp:win_space_toggle']"]
+    - ["cinnamon/desktop/interface/keyboard-layout-show-flags", "false"]
+
+- name: dconf-cinnamon | adjust notification settings
+  dconf:
+    key: "/org/cinnamon/desktop/notifications/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["bottom-notifications", "true"]
+
+- name: dconf-cinnamon | adjust panel settings
+  dconf:
+    key: "/org/cinnamon/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["panels-height", "['1:32']"]
+
+- name: dconf-cinnamon | adjust power settings
+  dconf:
+    key: "/org/cinnamon/settings-daemon/plugins/power/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["sleep-display-ac", "7200"]
+    - ["sleep-inactive-ac-timeout", "0"]
+    - ["lid-close-ac-action", "'suspend'"]
+    - ["sleep-display-battery", "1800"]
+    - ["sleep-inactive-battery-timeout", "3600"]
+    - ["lid-close-battery-action", "'suspend'"]
+    - ["critical-battery-action", "'shutdown'"]
+
+- name: dconf-cinnamon | adjust privacy settings
+  dconf:
+    key: "/org/cinnamon/desktop/privacy/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["remember-recent-files", "false"]
+
+- name: dconf-cinnamon | adjust removable media settings
+  dconf:
+    key: "/org/cinnamon/desktop/media-handling/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["autorun-never", "true"]
+
+- name: dconf-cinnamon | adjust security settings
+  dconf:
+    key: "/org/cinnamon/desktop/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["session/idle-delay", "uint32 3600"]
+    - ["screensaver/lock-delay", "uint32 600"]
+
+- name: dconf-cinnamon | adjust sound settings
+  dconf:
+    key: "/org/cinnamon/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["desktop/sound/maximum-volume", "150"]
+    - ["desktop/sound/volume-sound-enabled", "false"]
+    - ["sounds/close-enabled", "false"]
+    - ["sounds/login-enabled", "false"]
+    - ["sounds/logout-enabled", "false"]
+    - ["sounds/map-enabled", "false"]
+    - ["sounds/maximize-enabled", "false"]
+    - ["sounds/minimize-enabled", "false"]
+    - ["sounds/notification-enabled", "false"]
+    - ["sounds/plug-enabled", "false"]
+    - ["sounds/switch-enabled", "false"]
+    - ["sounds/tile-enabled", "false"]
+    - ["sounds/unmaximize-enabled", "false"]
+    - ["sounds/unplug-enabled", "false"]
+
+- name: dconf-cinnamon | adjust window settings
+  dconf:
+    key: "/org/cinnamon/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["desktop/wm/preferences/action-scroll-titlebar", "'opacity'"]
+    - ["desktop/wm/preferences/min-window-opacity", "20"]
+    - ["alttab-switcher-style", "'coverflow'"]
+    - ["muffin/tile-maximize", "true"]

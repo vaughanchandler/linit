@@ -1,5 +1,10 @@
 ---
 
+- import_tasks: dconf-cinnamon.yml
+  become_user: "{{ real_user }}"
+  tags: dconf
+  when: "'cinnamon' in ansible_run_tags"
+
 - import_tasks: ufw.yml
   tags: ufw, ufw_common
 
