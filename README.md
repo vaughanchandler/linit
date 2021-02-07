@@ -10,9 +10,9 @@ General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/dev
 
 Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,dconf,dev,devops,genealogy,network,packages,ufw_common,upgrade`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,dev,devops,network,packages,ssh,sshd,ufw_common,upgrade`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -29,6 +29,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 * `dconf` - Configures system settings (needs a DE tag like `cinnamon`).
 * `software` - Installs all software packages.
 * `ssh` - Installs SSH public keys.
+* `swap` - Creates and enables a swap file on the root partition.
 * `ufw` - Enables UFW to manage iptables without inbound rules.
 * `ufw_common` - Enables UFW to manage iptables with common inbound rules.
 * `upgrade` - Upgrades all installed packages.
@@ -60,4 +61,6 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 
 ### Other tags
 
-The `cinnamon` enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
+The `cinnamon` tag enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
+
+The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM.
