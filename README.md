@@ -8,9 +8,11 @@ Draws heavily from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansib
 
 General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
+Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags network,packages,ssh,sshd,upgrade`
+
 Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,dev,devops,genealogy,network,packages,ufw_common,upgrade`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags dev,devops,network,packages,sshd,ufw_common,upgrade`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags dev,devops,network,packages,ssh,sshd,ufw_common,upgrade`
 
 To complete Ulauncher setup:
 
