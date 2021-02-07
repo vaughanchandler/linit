@@ -8,13 +8,13 @@ Draws heavily from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansib
 
 General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
-Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags network,packages,ssh,sshd,upgrade`
+Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,dev,devops,genealogy,network,packages,ufw_common,upgrade`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,dconf,dev,devops,genealogy,network,packages,ufw_common,upgrade`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags dev,devops,network,packages,ssh,sshd,ufw_common,upgrade`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,dev,devops,network,packages,ssh,sshd,ufw_common,upgrade`
 
-To complete Ulauncher setup:
+To complete Ulauncher setup (if the `packages` tag was used):
 
 * Start Ulauncher.
 * `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,packages`
@@ -26,6 +26,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 
 ### Top level tags
 
+* `dconf` - Configures system settings (needs a DE tag like `cinnamon`).
 * `software` - Installs all software packages.
 * `ssh` - Installs SSH public keys.
 * `ufw` - Enables UFW to manage iptables without inbound rules.
