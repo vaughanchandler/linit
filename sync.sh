@@ -31,7 +31,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 inotifywait -r -e close_write,moved_to,delete_self -m . | while read -r directory events filename; do
     for hostpath in $@; do
-        if [[ $directory == *"/.git/"* ]]; then
+        if [[ $directory == *"/.git/"* ]] || [[ $directory == *"/.vscode/"* ]]; then
             continue
         fi
         printf "%s: Syncing to $hostpath because $directory$filename changed... " "`date +%T`"
