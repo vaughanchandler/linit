@@ -31,55 +31,23 @@
   changed_when: False
   when: ansible_os_family == "Debian"
 
-- import_tasks: software/misc.yml
-
-- import_tasks: software/docker.yml
-  tags: dev, devops, software
-
-- import_tasks: software/barrier.yml
-  tags: packages, software
-
-- import_tasks: software/gitrelease.yml
-  tags: dev, devops, software
-
-- import_tasks: software/google_chrome.yml
-  tags: packages, software
-
-- import_tasks: software/homebank.yml
-  tags: accounting, software
-
-- import_tasks: software/keepassxc.yml
-  tags: packages, software
-
-- import_tasks: software/qbittorrent.yml
-  tags: packages, software
-
-- import_tasks: software/simplescreenrecorder.yml
-  tags: packages, software
-
-- import_tasks: software/skype.yml
-  tags: packages, software
-
-- import_tasks: software/solaar.yml
-  tags: packages, software
-
-- import_tasks: software/sublimetext.yml
-  tags: packages, software
-
-- import_tasks: software/ulauncher.yml
-  tags: packages, software
-
-- import_tasks: software/unetbootin.yml
-  tags: packages, software
-
-- import_tasks: software/virtualbox.yml
-  tags: devops, pentest, software
-
-- import_tasks: software/vscode.yml
-  tags: dev, devops, software
+- import_tasks: software/main.yml
 
 - name: post-software | upgrade installed packages
   tags: never, upgrade
   package:
     name: "*"
     state: latest
+
+- name: post-software | auto-download upgradable packages
+  tags: upgrade
+  cron:
+    name: 'auto-download upgradable packages'
+    minute: '42'
+    hour: '8,12,16,20,0'
+    user: root
+    job: 'apt-get -dy upgrade > /var/log/apt-download-upgradable 2>&1'
+    cron_file: 'apt-download-upgradable'
+  notify:
+    - restart cron
+  when: ansible_os_family == "Debian"
