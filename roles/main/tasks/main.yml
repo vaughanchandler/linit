@@ -38,3 +38,16 @@
   package:
     name: "*"
     state: latest
+
+- name: post-software | auto-download upgradable packages
+  tags: upgrade
+  cron:
+    name: 'auto-download upgradable packages'
+    minute: '42'
+    hour: '8,12,16,20,0'
+    user: root
+    job: 'apt-get -dy upgrade > /var/log/apt-download-upgradable 2>&1'
+    cron_file: 'apt-download-upgradable'
+  notify:
+    - restart cron
+  when: ansible_os_family == "Debian"
