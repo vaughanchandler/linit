@@ -9,3 +9,13 @@
   package:
     name: ulauncher
   when: ansible_os_family == "Debian"
+
+- name: software | ulauncher | enable autostart
+  copy:
+    src: home_config_autostart/ulauncher.desktop
+    dest: "{{ real_home }}/.config/autostart/ulauncher.desktop"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    mode: '0664'
+    force: no
+  when: "'cinnamon' in ansible_run_tags"
