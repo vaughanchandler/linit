@@ -12,6 +12,14 @@ Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/lini
 
 Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags dev,devops,network,packages,sshd,ufw_common,upgrade`
 
+To complete Ulauncher setup:
+
+* Start Ulauncher.
+* `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,packages`
+* Restart Ulauncher.
+
+### Testing
+
 Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] [--diff] [--check]`
 
 ### Top level tags
@@ -46,3 +54,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 * `ufw_postgres` - Allows TCP 5432 for PostgreSQL.
 * `ufw_sshd` - Allows TCP 22 for SSH (included in `ufw_common`).
 * `ufw_warpinator` - Allows TCP/UDP 42000 for Warpinator (included in `ufw_common` for Linux Mint only).
+
+### Other tags
+
+The `cinnamon` enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
