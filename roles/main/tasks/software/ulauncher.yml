@@ -19,3 +19,27 @@
     mode: '0664'
     force: no
   when: "'cinnamon' in ansible_run_tags"
+
+  # Ulauncher's config file doesn't get created until it runs for the first time.
+  # Ulauncher must be restarted for external changes to this file to take effect.
+- name: software | ulauncher | check for config file
+  stat:
+    path: "{{ real_home }}/.config/ulauncher/settings.json"
+  when: "'cinnamon' in ansible_run_tags"
+  register: ulauncher_config
+
+- name: software | ulauncher | configure keyboard shortcut
+  lineinfile:
+    path: "{{ real_home }}/.config/ulauncher/settings.json"
+    regexp: '"hotkey-show-app"'
+    line: '    "hotkey-show-app": "<Shift>F2",'
+    insertbefore: '}'
+  when: "'cinnamon' in ansible_run_tags and ulauncher_config.stat.exists"
+
+- name: software | ulauncher | configure app history
+  lineinfile:
+    path: "{{ real_home }}/.config/ulauncher/settings.json"
+    regexp: '"show-recent-apps"'
+    line: '    "show-recent-apps": "3",'
+    insertbefore: '}'
+  when: "'cinnamon' in ansible_run_tags and ulauncher_config.stat.exists"
