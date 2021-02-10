@@ -10,9 +10,9 @@ General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/dev
 
 Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -26,6 +26,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 
 ### Top level tags
 
+* `data` - Configures the data partition and symlinks to it from the home folder.
 * `dconf` - Configures system settings (needs a DE tag like `cinnamon`).
 * `software` - Installs all software packages.
 * `ssh` - Installs SSH public keys.
