@@ -11,6 +11,9 @@
 - import_tasks: ufw.yml
   tags: ufw, ufw_common
 
+- import_tasks: data.yml
+  tags: data
+
 - name: ssh | create .ssh folder
   tags: ssh
   file:
