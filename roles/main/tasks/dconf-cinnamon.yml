@@ -102,6 +102,20 @@
     - ["sounds/unmaximize-enabled", "false"]
     - ["sounds/unplug-enabled", "false"]
 
+- name: dconf-cinnamon | adjust theme settings
+  dconf:
+    key: "/org/cinnamon/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["desktop/interface/gtk-theme", "'Mint-Y-Aqua'"]
+    - ["desktop/interface/icon-theme", "'Mint-Y-Aqua'"]
+    - ["theme/name", "'Mint-Y-Dark-Aqua'"]
+
+    - ["desktop/wm/preferences/action-scroll-titlebar", "'opacity'"]
+    - ["desktop/wm/preferences/min-window-opacity", "20"]
+    - ["alttab-switcher-style", "'coverflow'"]
+    - ["muffin/tile-maximize", "true"]
+
 - name: dconf-cinnamon | adjust window settings
   dconf:
     key: "/org/cinnamon/{{ item[0] }}"
