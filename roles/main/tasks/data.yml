@@ -1,0 +1,72 @@
+---
+
+- name: data | set permissions on mount point
+  file:
+    path: /mnt/data
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    mode: "0755"
+    state: directory
+
+- name: data | create folders on data partition
+  file:
+    path: /mnt/data/{{ item }}
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    mode: "0750"
+    state: directory
+  loop: "{{ data_folders }}"
+
+# Figure out which of the subfolders actually exist.
+- name: data | find subfolders in home folder
+  find:
+    paths: "{{ real_home }}"
+    recurse: no
+    file_type: directory
+    patterns: "{{ data_folders }}"
+  register: home_subfolders
+
+# Figure out whether the existing subfolders have content.
+- name: data | find empty subfolders in home folder
+  find:
+    paths: "{{ item }}"
+    recurse: no
+    file_type: any
+    hidden: yes
+  loop: "{{ home_subfolders.files|map(attribute='path')|list }}"
+  register: home_subfolders_details
+
+# Only delete the ones with no matches, ie those containing no folders, files or symlinks.
+- name: data | delete empty subfolders in home folder
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ home_subfolders_details.results|selectattr('matched', 'equalto', 0)|map(attribute='item')|list }}"
+
+# Figure out which of the subfolders still exist.
+- name: data | find remaining subfolders in home folder
+  find:
+    paths: "{{ real_home }}"
+    recurse: no
+    file_type: directory
+    patterns: "{{ data_folders }}"
+  register: home_subfolders
+
+- name: data | create symlinks to data subfolders
+  file:
+    src: /mnt/data/{{ item }}
+    dest: "{{ real_home }}/{{ item }}"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    state: link
+    force: no
+  loop: "{{ data_folders|reject('in', home_subfolders.files|map(attribute='path')|map('replace', real_home+'/', '')|list) | list }}"
+
+- name: data | create symlink to data folder
+  file:
+    src: /mnt/data
+    dest: "{{ real_home}}/Data"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    state: link
+    force: no
