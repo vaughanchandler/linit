@@ -17,6 +17,7 @@
       - linphone
       - ncdu
       - pigz
+      - python3-gpg # for Dropbox installer
       - remmina
       - remmina-plugin-rdp
       - remmina-plugin-vnc
