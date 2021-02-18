@@ -18,8 +18,10 @@ if ! command -v 'git' &>/dev/null || ! command -v 'ansible' &>/dev/null; then
     fi
 fi
 
-# Install community.general collection (can't list installed collections in ansible < 2.10)
-ansible-galaxy collection install community.general
+# Install community.general collection (can't list installed collections in ansible < 2.10 so the install will be attempted on each run there).
+if ! ansible-galaxy collection list 2>/dev/null | grep -q community.general; then
+    ansible-galaxy collection install community.general
+fi
 
 # Run playbook, passing any CLI args this script received.
 if [[ $EUID -eq 0 ]]; then
