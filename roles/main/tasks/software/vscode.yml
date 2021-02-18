@@ -14,3 +14,8 @@
   package:
     name: code
   when: ansible_os_family == "Debian"
+
+- name: software | vscode | install package
+  package:
+    name: code
+  when: ansible_os_family == "Archlinux"

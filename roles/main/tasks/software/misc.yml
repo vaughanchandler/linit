@@ -66,7 +66,7 @@
       - inotify-tools
       - lynx
       - meld
-      - virtualenv
+      - "{{ virtualenv_package }}"
 
 - name: software | install general devops packages
   tags: devops, software
@@ -114,24 +114,37 @@
       - httrack
       - netcat
       - nmap
-      - wireshark
+      - "{{ wireshark_package }}"
 
 - name: software | install general pentest packages
   tags: pentest, software
   package:
     name:
       - aircrack-ng
-      - dhcpig
-      - ettercap-graphical
+      - "{{ ettercap_package }}"
       - hashcat
       - hydra
-      - hydra-gtk
       - john
       - kismet
       - slowhttptest
+
+- name: software | install general pentest packages (Archlinux-based)
+  tags: pentest, software
+  package:
+    name:
+      - bettercap
+  when: ansible_os_family == "Archlinux"
+
+- name: software | install general pentest packages (Debian-based)
+  tags: pentest, software
+  package:
+    name:
+      - dhcpig
+      - hydra-gtk
+  when: ansible_os_family == "Debian"
 
 - name: software | install general ssh packages
   tags: sshd, software
   package:
     name:
-      - openssh-server
+      - "{{ ssh_package }}"

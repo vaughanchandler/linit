@@ -10,7 +10,7 @@
     filename: docker
   when: ansible_os_family == "Debian"
 
-- name: software | docker | install package
+- name: software | docker | install package (Debian-based)
   package:
     name:
       - docker-compose
@@ -18,6 +18,15 @@
   notify:
     - restart docker
   when: ansible_os_family == "Debian"
+
+- name: software | docker | install package (Archlinux-based)
+  package:
+    name:
+      - docker-compose
+      - docker
+  notify:
+    - restart docker
+  when: ansible_os_family == "Archlinux"
 
 - name: software | docker | create group
   group:

@@ -1,0 +1,5 @@
+# Package names.
+ettercap_package: ettercap-graphical
+ssh_package: openssh-server
+virtualenv_package: virtualenv
+wireshark_package: wireshark
