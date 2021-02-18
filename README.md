@@ -65,7 +65,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 
 The `cinnamon` tag enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
 
-The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM.
+The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM. If you want the filesize re-calculated when running with a different tag or a different amount of RAM, you'll first need to run `swapoff -a` to free /swapfile and then delete it.
 
 ## Manjaro support
 
