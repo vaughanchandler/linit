@@ -8,7 +8,7 @@ if ! command -v 'git' &>/dev/null || ! command -v 'ansible' &>/dev/null; then
         echo "Installing git and/or ansible via apt, press ENTER to continue or CTRL+C to cancel."
         read
         apt install -y git ansible
-    if command -v 'pacman' &>/dev/null; then
+    elif command -v 'pacman' &>/dev/null; then
         echo "Installing git and/or ansible via pacman, press ENTER to continue or CTRL+C to cancel."
         read
         sudo pacman -Sy --noconfirm git ansible
