@@ -10,9 +10,9 @@ General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/dev
 
 Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -47,6 +47,7 @@ These tags are subsets of the `software` tag:
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages.
 * `sshd` - Installs OpenSSH server.
+* `vbox` - Installs VirtualBox.
 
 These tags can be used for allowing inbound traffic through the firewall (`ufw` or `ufw_common` must still be used to enable UFW):
 
