@@ -5,7 +5,13 @@
 # Install git and ansible.
 if ! command -v 'git' &>/dev/null || ! command -v 'ansible' &>/dev/null; then
     if command -v 'apt' &>/dev/null; then
+        echo "Installing git and/or ansible via apt, press ENTER to continue or CTRL+C to cancel."
+        read
         apt install -y git ansible
+    if command -v 'pacman' &>/dev/null; then
+        echo "Installing git and/or ansible via pacman, press ENTER to continue or CTRL+C to cancel."
+        read
+        sudo pacman -Sy --noconfirm git ansible
     else
         echo "No supported package manager found, please install git and ansible manually."
         exit 1
