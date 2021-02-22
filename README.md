@@ -20,6 +20,10 @@ To complete Ulauncher setup (if the `packages` tag was used):
 * `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,packages`
 * Restart Ulauncher.
 
+### Requirements
+
+Git and Ansible must be installed, as well as Ansible's community.general collection. The bootstrap script installs all of these.
+
 ### Testing
 
 Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] [--diff] [--check]`
