@@ -148,3 +148,11 @@
   package:
     name:
       - "{{ ssh_package }}"
+
+- name: software | configure vim
+  tags: dev, devops, software
+  blockinfile:
+    path: "{{ real_home }}/.vimrc"
+    create: yes
+    marker: '" {mark} ANSIBLE MANAGED BLOCK '
+    block: "{{ vimrc }}"
