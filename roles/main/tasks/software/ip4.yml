@@ -1,0 +1,8 @@
+---
+- name: software | ip4 | copy script
+  copy:
+    src: usr_local_bin/ip4.sh
+    dest: /usr/local/bin/ip4
+    owner: root
+    group: root
+    mode: '0755'
