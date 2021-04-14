@@ -9,3 +9,22 @@
   package:
     name: keepassxc
   when: ansible_os_family == "Debian"
+
+- name: software | keepassxc | configure
+  ini_file:
+    path: "{{ real_home }}/.config/keepassxc/keepassxc.ini"
+    section: "{{ item[0] }}"
+    option: "{{ item[1] }}"
+    value: "{{ item[2] }}"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    no_extra_spaces: yes
+  loop:
+    - [General, GlobalAutoTypeKey, '65']
+    - [General, GlobalAutoTypeModifiers, '201326592']
+    - [General, UpdateCheckMessageShown, 'true']
+    - [GUI, CheckForUpdates, 'false']
+    - [GUI, MinimizeOnClose, 'true']
+    - [GUI, MinimizeToTray, 'true']
+    - [GUI, ShowTrayIcon, 'true']
+    - [Security, ClearClipboardTimeout, '300']
