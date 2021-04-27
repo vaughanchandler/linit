@@ -1,7 +1,7 @@
 ---
 - name: software | solaar | add ppa ({{ distribution_codebase }})
   apt_repository:
-    repo: ppa:solaar-unifying/ppa
+    repo: ppa:solaar-unifying/stable
     codename: "{{ distribution_codebase }}"
   when: ansible_os_family == "Debian"
 
