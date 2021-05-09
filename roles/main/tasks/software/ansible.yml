@@ -1,0 +1,10 @@
+---
+# Linux Mint 20.1 (based on Ubuntu 20.04) has an ansible package in the repo.
+# This PPA has an ansible-base package instead.
+# Since this role can't uninstall ansible without breaking itself, you'll need to upgrade manually:
+# apt -y remove ansible && apt -y install ansible-base
+- name: software | ansible | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:ansible/ansible
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"

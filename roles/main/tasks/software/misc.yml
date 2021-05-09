@@ -72,7 +72,6 @@
   tags: devops, software
   package:
     name:
-      - ansible
       - clusterssh
       - proxychains
       - vagrant

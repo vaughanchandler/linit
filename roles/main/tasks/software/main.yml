@@ -2,6 +2,9 @@
 
 - import_tasks: software/misc.yml
 
+- import_tasks: software/ansible.yml
+  tags: devops, software
+
 - import_tasks: software/docker.yml
   tags: dev, devops, software
 
