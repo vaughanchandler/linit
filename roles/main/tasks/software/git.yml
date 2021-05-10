@@ -1,0 +1,28 @@
+---
+
+- name: Set git name
+  git_config:
+    name: user.name
+    value: "{{ full_name }}"
+  when: full_name
+
+- name: Set git email
+  git_config:
+    name: user.email
+    value: "{{ email }}"
+  when: email
+
+- name: Set general git settings and aliases
+  git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  loop:
+    - {name: "color.ui", value: "true"}
+    - {name: "core.editor", value: "vim"}
+    - {name: "alias.a", value: "add"}
+    - {name: "alias.c", value: "commit --verbose"}
+    - {name: "alias.ca", value: "commit --verbose --amend"}
+    - {name: "alias.d", value: "diff"}
+    - {name: "alias.dc", value: "diff --cached"}
+    - {name: "alias.l", value: "log"}
+    - {name: "alias.s", value: "status --short"}

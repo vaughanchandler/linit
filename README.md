@@ -26,6 +26,10 @@ Git and Ansible must be installed, as well as Ansible's community.general collec
 
 To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-base package: `apt -y remove ansible && apt -y install ansible-base`.
 
+### Variables
+
+To set your name and email in git, specify the `full_name` and `email` variables, eg by adding `-e '{"full_name":"My Name", "email":"me@example.com"}'` to your install command.
+
 ### Testing
 
 Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] [--diff] [--check]`
@@ -92,3 +96,7 @@ These tags have been tested with Manjaro 20.2.1 and are failing:
 * upgrade
 
 Other tags have not been tested with Manjaro.
+
+# Troubleshooting
+
+If the git settings aren't working, you may be affected by a bug which wraps the setting values in quotes. Edit /etc/gitconfig and remove the relevant quotes.
