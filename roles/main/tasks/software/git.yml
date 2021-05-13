@@ -1,18 +1,18 @@
 ---
 
-- name: Set git name
+- name: software | git | set name
   git_config:
     name: user.name
     value: "{{ full_name }}"
   when: full_name
 
-- name: Set git email
+- name: software | git | set email
   git_config:
     name: user.email
     value: "{{ email }}"
   when: email
 
-- name: Set general git settings and aliases
+- name: software | git | set general settings and aliases
   git_config:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
