@@ -1,0 +1,4 @@
+---
+
+- name: apparmor | enable profile for Firefox
+  command: aa-enforce /etc/apparmor.d/usr.bin.firefox

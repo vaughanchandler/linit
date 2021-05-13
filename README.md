@@ -8,11 +8,11 @@ Draws heavily from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansib
 
 General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
-Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,dconf,network,packages,ssh,sshd,upgrade`
+Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
+Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,apparmor,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -36,6 +36,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 
 ### Top level tags
 
+* `apparmor` - Enables apparmor profiles.
 * `data` - Configures the data partition and symlinks to it from the home folder.
 * `dconf` - Configures system settings (needs a DE tag like `cinnamon`).
 * `software` - Installs all software packages.

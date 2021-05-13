@@ -26,6 +26,13 @@
       - vim
       - vlc
 
+- name: software | install general packages (Debian-based)
+  tags: packages, software
+  package:
+    name:
+      - apparmor-utils
+  when: ansible_os_family == "Debian"
+
 - name: software | install general dev packages
   tags: dev, software
   package:

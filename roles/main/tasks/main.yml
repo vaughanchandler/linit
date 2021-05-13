@@ -74,3 +74,6 @@
   notify:
     - restart cron
   when: ansible_os_family == "Debian"
+
+- import_tasks: apparmor.yml
+  tags: apparmor
