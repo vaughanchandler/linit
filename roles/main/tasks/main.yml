@@ -77,3 +77,31 @@
 
 - import_tasks: apparmor.yml
   tags: apparmor
+
+- name: account | bash aliases
+  tags: bash
+  blockinfile:
+    path: "{{ real_home }}/.bash_aliases"
+    create: yes
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    block: |
+      # Confirmation
+      alias cp='cp -i'
+      alias mv='mv -i'
+      alias rm='rm -i'
+
+      # Colours
+      alias watch='watch --color -n1'
+      alias ip='ip -c'
+
+      # Ansible Vault
+      alias avc='ansible-vault encrypt'
+      alias avd='ansible-vault decrypt'
+      alias ave='ansible-vault edit'
+      alias avv='ansible-vault view'
+
+      # SSH
+      alias jscp='scp -o ProxyJump=jump'
+      alias jssh='ssh -J jump'
+      alias dssh='ssh -D 9050 jump'
