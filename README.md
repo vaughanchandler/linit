@@ -12,7 +12,7 @@ Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/
 
 Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,apparmor,bash,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
 
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,bash,cinnamon,data,dconf,dev,devops,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
+Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,bash,cinnamon,data,dconf,dev,devops,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -55,6 +55,7 @@ These tags are subsets of the `software` tag:
 * `dev` - Installs useful development packages.
 * `devops` - Installs useful devops packages.
 * `genealogy` - Installs Gramps and libraries it uses.
+* `media` - Installs useful audio/video packages.
 * `network` - Installs useful networking packages.
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages.

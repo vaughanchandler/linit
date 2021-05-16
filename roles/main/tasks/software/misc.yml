@@ -100,6 +100,16 @@
       - python3-pygraphviz
       - sqlite3
 
+- name: software | install general media packages
+  tags: media, software
+  package:
+    name:
+      - audacity
+      - ffmpeg
+      - obs-studio
+      - sox
+      - vlc
+
 - name: software | install general network packages
   tags: network, software
   package:

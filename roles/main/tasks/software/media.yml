@@ -1,0 +1,12 @@
+---
+- name: software | media | copy scripts
+  copy:
+    src: usr_local_bin/{{ item }}.sh
+    dest: /usr/local/bin/{{ item }}
+    owner: root
+    group: root
+    mode: '0755'
+  loop:
+    - video-concat
+    - video-optimize
+    - video-slice
