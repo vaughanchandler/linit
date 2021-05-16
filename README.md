@@ -22,7 +22,7 @@ To complete Ulauncher setup (if the `packages` tag was used):
 
 ### Requirements
 
-Git and Ansible must be installed, as well as Ansible's community.general collection. The bootstrap script installs all of these.
+Git and Ansible must be installed, as well as Ansible's ansible.posix and community.general collections. The bootstrap script installs all of these.
 
 To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-base package: `apt -y remove ansible && apt -y install ansible-base`.
 
