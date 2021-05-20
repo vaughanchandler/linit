@@ -26,3 +26,4 @@
     - {name: "alias.dc", value: "diff --cached"}
     - {name: "alias.l", value: "log"}
     - {name: "alias.s", value: "status --short"}
+    - {name: "alias.ss", value: "status"}
