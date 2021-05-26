@@ -26,5 +26,7 @@
     - {name: "alias.dc", value: "diff --cached"}
     - {name: "alias.l", value: "log"}
     - {name: "alias.l1", value: "log --oneline"}
+    - {name: "alias.lg", value: "log --oneline --graph"}
     - {name: "alias.s", value: "status --short"}
     - {name: "alias.ss", value: "status"}
+    - {name: "merge.tool", value: "meld"}
