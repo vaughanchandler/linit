@@ -105,3 +105,7 @@
       alias jscp='scp -o ProxyJump=jump'
       alias jssh='ssh -J jump'
       alias dssh='ssh -D 9050 jump'
+
+      # Media
+      alias ffmpeg='ffmpeg -hide_banner'
+      alias ffprobe='ffprobe -hide_banner'
