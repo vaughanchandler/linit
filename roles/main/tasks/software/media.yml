@@ -8,5 +8,8 @@
     mode: '0755'
   loop:
     - video-concat
+    - video-extract-audio
+    - video-fix
     - video-optimize
+    - video-remove-audio
     - video-slice
