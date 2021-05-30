@@ -78,6 +78,18 @@
 - import_tasks: apparmor.yml
   tags: apparmor
 
+- name: account | bash environmental variables
+  tags: bash
+  lineinfile:
+    path: "{{ real_home }}/.bashrc"
+    create: yes
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
+    line: 'export {{ item["name"] }}={{ item["value"] }}'
+    regexp: '^\s*export {{ item["name"] }}='
+  loop:
+    - {'name': 'VISUAL', 'value': 'vi'}
+
 - name: account | bash aliases
   tags: bash
   blockinfile:
