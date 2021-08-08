@@ -106,6 +106,7 @@
       # Colours
       alias watch='watch --color -n1'
       alias ip='ip -c'
+      alias diff='diff --color'
 
       # Ansible Vault
       alias avc='ansible-vault encrypt'
