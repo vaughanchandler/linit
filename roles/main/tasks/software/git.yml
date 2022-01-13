@@ -29,4 +29,6 @@
     - {name: "alias.lg", value: "log --oneline --graph"}
     - {name: "alias.s", value: "status --short"}
     - {name: "alias.ss", value: "status"}
+    - {name: "alias.rs", value: "flow release start"}
+    - {name: "alias.rf", value: "flow release finish"}
     - {name: "merge.tool", value: "meld"}
