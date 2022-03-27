@@ -131,6 +131,7 @@
   tags: network, pentest, software
   package:
     name:
+      - arp-scan
       - httrack
       - netcat
       - nmap
