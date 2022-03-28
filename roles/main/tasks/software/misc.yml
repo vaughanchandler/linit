@@ -133,7 +133,7 @@
     name:
       - arp-scan
       - httrack
-      - netcat
+      - ncat
       - nmap
       - "{{ wireshark_package }}"
 
