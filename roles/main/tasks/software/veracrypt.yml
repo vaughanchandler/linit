@@ -1,0 +1,11 @@
+---
+- name: software | veracrypt | add ppa ({{ distribution_codebase }})
+  apt_repository:
+    repo: ppa:unit193/encryption
+    codename: "{{ distribution_codebase }}"
+  when: ansible_os_family == "Debian"
+
+- name: software | veracrypt | install package
+  package:
+    name: veracrypt
+  when: ansible_os_family == "Debian"
