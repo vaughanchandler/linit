@@ -31,4 +31,6 @@
     - {name: "alias.ss", value: "status"}
     - {name: "alias.rs", value: "flow release start"}
     - {name: "alias.rf", value: "flow release finish"}
+    - {name: "alias.t", value: "tag --sort=-v:refname"}
+    - {name: "alias.tt", value: "tag --sort=-v:refname -n100"}
     - {name: "merge.tool", value: "meld"}
