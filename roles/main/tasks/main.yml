@@ -122,3 +122,4 @@
       # Media
       alias ffmpeg='ffmpeg -hide_banner'
       alias ffprobe='ffprobe -hide_banner'
+      alias vlc-all-audio='vlc --sout-all --sout "#display"'
