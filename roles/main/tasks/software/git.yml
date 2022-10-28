@@ -20,10 +20,15 @@
     - {name: "color.ui", value: "true"}
     - {name: "core.editor", value: "vim"}
     - {name: "alias.a", value: "add"}
+    - {name: "alias.b", value: "branch --sort=-committerdate"}
     - {name: "alias.c", value: "commit --verbose"}
     - {name: "alias.ca", value: "commit --verbose --amend"}
     - {name: "alias.d", value: "diff"}
     - {name: "alias.dc", value: "diff --cached"}
+    - {name: "alias.fs", value: "flow feature start"}
+    - {name: "alias.ff", value: "flow feature finish"}
+    - {name: "alias.hs", value: "flow hotfix start"}
+    - {name: "alias.hf", value: "flow hotfix finish"}
     - {name: "alias.l", value: "log"}
     - {name: "alias.l1", value: "log --oneline"}
     - {name: "alias.lg", value: "log --oneline --graph"}
