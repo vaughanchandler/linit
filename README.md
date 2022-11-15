@@ -1,18 +1,20 @@
 # Linit
 
-Ansible config for my computers. Should work on Debian-based distros, but only tested on Linux Mint 19.1 and 20.1.
+Ansible config for my computers. Should work on Debian-based distros, but only tested on Linux Mint 19.1, 20.1 and 21 (and only recently on 21).
 
-Draws heavily from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansible_desktop_configs).
+Draws from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansible_desktop_configs).
+
+## Requirements
+
+Git and Ansible must be installed, as well as Ansible's ansible.posix and community.general collections. The bootstrap script installs all of these.
+
+To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-base package: `apt -y remove ansible && apt -y install ansible-base`.
 
 ## Usage
 
-General usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
+If you already have git and ansible installed, along with the required Ansible collections, you can clone the repo from `https://github.com/vaughanchandler/linit` and run the `ansible-playbook local.yml [--tags <tags...>] [--diff] [--check]` from the develop branch.
 
-Typical vm usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
-
-Typical home usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags accounting,apparmor,bash,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
-
-Typical work usage: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags apparmor,bash,cinnamon,data,dconf,dev,devops,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
+If not, you can run the bootstrap script to get up and running: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
 To complete Ulauncher setup (if the `packages` tag was used):
 
@@ -20,15 +22,21 @@ To complete Ulauncher setup (if the `packages` tag was used):
 * `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop --tags cinnamon,packages`
 * Restart Ulauncher.
 
-### Requirements
+### Common Tags
 
-Git and Ansible must be installed, as well as Ansible's ansible.posix and community.general collections. The bootstrap script installs all of these.
+In a VM: `apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-base package: `apt -y remove ansible && apt -y install ansible-base`.
+At home: `accounting,apparmor,bash,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
+
+At work: `apparmor,bash,cinnamon,data,dconf,dev,devops,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
 
 ### Variables
 
-To set your name and email in git, specify the `full_name` and `email` variables, eg by adding `-e '{"full_name":"My Name", "email":"me@example.com"}'` to your install command.
+You can use the -e argument from the CLI to override certain variables, eg:
+
+* To set your name and email in git, set the `full_name` and `email` variables: `-e '{"full_name":"My Name", "email":"me@example.com"}'`
+* To control which IPs can access your system , set the `trusted_ips` variable: `-e '{"trusted_ips":["192.168.42.0/24"]}'` (see ufw.yaml for port details)
+* To add your SSH key instead of mine, set the `public_keys` variable: `-e '{"public_keys":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEZRKnL68aPgv2XOw8iI+LjGbDZ3dU/0E8GcLdsyhGo vaughan.codes@gmail.com"}'`
 
 ### Testing
 
@@ -52,13 +60,16 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 These tags are subsets of the `software` tag:
 
 * `accounting` - Installs HomeBank.
+* `apache` - Installs Apache.
 * `dev` - Installs useful development packages.
 * `devops` - Installs useful devops packages.
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
+* `mysql` - Installs MySQL.
 * `network` - Installs useful networking packages.
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages.
+* `php` - Installs PHP and related packages.
 * `sshd` - Installs OpenSSH server.
 * `vbox` - Installs VirtualBox.
 
