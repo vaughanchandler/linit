@@ -1,5 +1,5 @@
 # The version of PHP to install, eg "7.4" if the package is called "php7.4" in the repo.
-php_version: 7.4
+php_version: "{{ distro_php_version }}"
 
 # Your email address (used when setting up git).
 email: ''
@@ -7,8 +7,8 @@ email: ''
 # Your full name (used when setting up git).
 full_name: ''
 
-# Override the Ubuntu code base for Linux Mint 19+
-distribution_codebase: "{% if ansible_distribution == 'Linux Mint' %}{% if ansible_distribution_major_version == '19' %}bionic{% else %}focal{% endif %}{% else %}{{ ansible_distribution_release }}{% endif %}"
+# Override the Ubuntu code base for Linux Mint etc.
+distribution_codebase: "{{ distro_codebase }}"
 
 # Determine user/group details so files can be put in the right place with the right ownership.
 real_user:  "{% if ansible_env['SUDO_USER'] is defined %}{{ ansible_env['SUDO_USER'] }}{% else %}{{ ansible_env['USER'] }}{% endif %}"

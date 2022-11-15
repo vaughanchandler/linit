@@ -37,6 +37,8 @@
 
 - import_tasks: software/simplescreenrecorder.yml
   tags: packages, software
+  when:
+    - ansible_distribution != 'Linux Mint' or ansible_distribution_major_version != '21' # Currently no PPA for jammy
 
 - import_tasks: software/skype.yml
   tags: packages, software
@@ -52,6 +54,8 @@
 
 - import_tasks: software/unetbootin.yml
   tags: packages, software
+  when:
+    - ansible_distribution != 'Linux Mint' or ansible_distribution_major_version != '21' # Currently no PPA for jammy
 
 - import_tasks: software/veracrypt.yml
   tags: packages, software
