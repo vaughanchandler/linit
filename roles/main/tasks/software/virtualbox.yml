@@ -12,5 +12,5 @@
 
 - name: software | virtualbox | install package
   package:
-    name: virtualbox-6.1
+    name: "{{ virtualbox_package }}"
   when: ansible_os_family == "Debian"

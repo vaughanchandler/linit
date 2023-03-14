@@ -1,6 +1,7 @@
 # Package names.
 ettercap_package: ettercap-graphical
 ssh_package: openssh-server
+virtualbox_package: virtualbox-7.0
 virtualenv_package: virtualenv
 wireshark_package: wireshark
 
