@@ -8,7 +8,7 @@ Draws from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansible_deskt
 
 Git and Ansible must be installed, as well as Ansible's ansible.posix and community.general collections. The bootstrap script installs all of these.
 
-To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-base package: `apt -y remove ansible && apt -y install ansible-base`.
+To use a more recent version of Ansible from a PPA, you may need to remove the ansible package and install the ansible-core package: `apt -y remove ansible && apt -y install ansible-core`.
 
 ## Usage
 
@@ -60,7 +60,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 These tags are subsets of the `software` tag:
 
 * `accounting` - Installs HomeBank.
-* `ansible_ppa` - Installs Ansible's PPA (on some distros you may need to run `apt -y remove ansible && apt -y install ansible-base` after installing the PPA to get the latest version of Ansible installed).
+* `ansible_ppa` - Installs Ansible's PPA (on some distros you may need to run `apt -y remove ansible && apt -y install ansible-core` after installing the PPA to get the latest version of Ansible installed).
 * `dev` - Installs useful development packages.
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
@@ -77,6 +77,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 * `ufw_dropbox` - Allows TCP/UDP 17500 for Dropbox (included in `ufw_common`).
 * `ufw_http` - Allows TCP 80 for HTTP.
 * `ufw_https` - Allows TCP 443 for HTTPS.
+* `ufw_mysql` - Allows TCP 3306 for MySQL.
 * `ufw_postgres` - Allows TCP 5432 for PostgreSQL.
 * `ufw_sshd` - Allows TCP 22 for SSH (included in `ufw_common`).
 * `ufw_warpinator` - Allows TCP/UDP 42000 for Warpinator (included in `ufw_common` for Linux Mint only).
@@ -85,7 +86,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 
 The `cinnamon` tag enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
 
-The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM. If you want the filesize re-calculated when running with a different tag or a different amount of RAM, you'll first need to run `swapoff -a` to free /swapfile and then delete it.
+The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM. If you want the filesize re-calculated after running with a different tag or if you have a different amount of RAM, you'll first need to run `swapoff -a` to free /swapfile and then delete it.
 
 ## Manjaro support
 
