@@ -12,7 +12,7 @@ To use a more recent version of Ansible from a PPA, you may need to remove the a
 
 ## Usage
 
-If you already have git and ansible installed, along with the required Ansible collections, you can clone the repo from `https://github.com/vaughanchandler/linit` and run the `ansible-playbook local.yml [--tags <tags...>] [--diff] [--check]` from the develop branch.
+If you already have git and ansible installed, along with the required Ansible collections, you can clone the repo from `https://github.com/vaughanchandler/linit` and run `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] [--diff] [--check]` from the develop branch.
 
 If not, you can run the bootstrap script to get up and running: `curl https://raw.githubusercontent.com/vaughanchandler/linit/develop/bootstrap.sh | bash -s -- -C develop [--tags <tags...>] [--diff] [--check]`
 
@@ -26,9 +26,9 @@ To complete Ulauncher setup (if the `packages` tag was used):
 
 In a VM: `apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-At home: `accounting,apparmor,bash,cinnamon,data,dconf,dev,devops,genealogy,network,packages,swap,ufw_common,upgrade,vbox`
+At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,genealogy,media,network,packages,swap,ufw_common,upgrade,vm`
 
-At work: `apparmor,bash,cinnamon,data,dconf,dev,devops,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vbox`
+At work: `ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vm`
 
 ### Variables
 
@@ -60,15 +60,15 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 These tags are subsets of the `software` tag:
 
 * `accounting` - Installs HomeBank.
+* `ansible_ppa` - Installs Ansible's PPA (on some distros you may need to run `apt -y remove ansible && apt -y install ansible-base` after installing the PPA to get the latest version of Ansible installed).
 * `dev` - Installs useful development packages.
-* `devops` - Installs useful devops packages.
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
 * `network` - Installs useful networking packages.
 * `packages` - Installs general packages that don't fall into another group.
-* `pentest` - Installs useful penetration testing packages.
+* `pentest` - Installs useful penetration testing packages (you'll probably want the `network` tag also).
 * `sshd` - Installs OpenSSH server.
-* `vbox` - Installs VirtualBox.
+* `vm` - Installs Vagrant and VirtualBox.
 
 These tags can be used for allowing inbound traffic through the firewall (`ufw` or `ufw_common` must still be used to enable UFW):
 
@@ -89,23 +89,7 @@ The `swap1` tag creates a 1GB swap file when specified on its own or with the `s
 
 ## Manjaro support
 
-These tags have been tested with Manjaro 20.2.1 and are working:
-
-* devops (installs open source version of VS Code)
-* network
-* pentest
-* ssh
-* sshd
-* swap
-* swap1
-* ufw
-* ufw_sshd
-
-These tags have been tested with Manjaro 20.2.1 and are failing:
-
-* upgrade
-
-Other tags have not been tested with Manjaro.
+Some tags were tested successfully with Manjaro 20.2.1 using an older version of Linit. The upgrade tag is known to not work.
 
 # Troubleshooting
 

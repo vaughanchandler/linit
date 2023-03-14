@@ -51,7 +51,7 @@
   loop: "{{ public_keys }}"
 
 - name: pre-software | update package cache (debian-based)
-  tags: accounting, dev, devops, genealogy, network, packages, pentest, software, sshd
+  tags: accounting, dev, genealogy, network, packages, pentest, software, sshd, vm
   apt: update_cache=yes
   changed_when: False
   when: ansible_os_family == "Debian"

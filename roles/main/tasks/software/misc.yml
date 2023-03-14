@@ -6,6 +6,7 @@
   package:
     name:
       - aria2
+      - clusterssh
       - dropbox
       - gimp
       - git
@@ -13,10 +14,13 @@
       - iftop
       - inkscape
       - iotop
+      - ipcalc
       - jq
       - linphone
+      - meld
       - ncdu
       - pigz
+      - pv
       - python3-gpg # for Dropbox installer
       - qpdf
       - remmina
@@ -26,6 +30,7 @@
       - tree
       - vim
       - vlc
+      - whois
 
 - name: software | install general packages (Debian-based)
   tags: packages, software
@@ -38,28 +43,14 @@
   tags: dev, software
   package:
     name:
+      - cloc
       - git-flow
+      - inotify-tools
+      - lynx
       - nodejs
       - npm
       - python3-pip
-
-- name: software | install general dev/devops packages
-  tags: dev, devops, software
-  package:
-    name:
-      - cloc
-      - inotify-tools
-      - lynx
-      - meld
       - "{{ virtualenv_package }}"
-
-- name: software | install general devops packages
-  tags: devops, software
-  package:
-    name:
-      - clusterssh
-      - proxychains
-      - vagrant
 
 - name: software | install general genealogy packages
   tags: genealogy, software
@@ -95,23 +86,12 @@
   tags: network, software
   package:
     name:
-      - clusterssh
       - fping
-      - ipcalc
       - mtr
-      - nbtscan
-      - proxychains
-      - traceroute
-      - whois
-
-- name: software | install general network/pentest packages
-  tags: network, pentest, software
-  package:
-    name:
-      - arp-scan
-      - httrack
       - ncat
       - nmap
+      - proxychains
+      - traceroute
       - "{{ wireshark_package }}"
 
 - name: software | install general pentest packages
@@ -119,20 +99,25 @@
   package:
     name:
       - aircrack-ng
+      - arp-scan
       - "{{ ettercap_package }}"
       - hashcat
+      - httrack
       - hydra
       - john
+      - nbtscan
       - slowhttptest
 
-- name: software | install general pentest packages (Archlinux-based)
+- name: software | install general pentest packages (bettercap)
   tags: pentest, software
   package:
     name:
       - bettercap
-  when: ansible_os_family == "Archlinux"
+  when:
+    - ansible_os_family == "Archlinux"
+    - ansible_os_family == "Debian" and distro_codebase != "focal"
 
-- name: software | install general pentest packages (Debian-based)
+- name: software | install general pentest packages (Debian-specific)
   tags: pentest, software
   package:
     name:
@@ -146,8 +131,14 @@
     name:
       - "{{ ssh_package }}"
 
+- name: software | install general vm packages
+  tags: vm, software
+  package:
+    name:
+      - vagrant
+
 - name: software | configure vim
-  tags: dev, devops, software
+  tags: dev, software
   blockinfile:
     path: "{{ real_home }}/.vimrc"
     create: yes
