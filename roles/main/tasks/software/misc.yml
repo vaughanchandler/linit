@@ -43,51 +43,6 @@
       - npm
       - python3-pip
 
-- name: software | install apache
-  tags: apache, software
-  package:
-    name:
-      - apache2
-
-- name: software | install mysql packages
-  tags: mysql, software
-  package:
-    name:
-      - mysql-client
-      - mysql-server
-
-- name: software | install php packages
-  tags: php, software
-  package:
-    name:
-      - composer
-      - imagemagick
-      - memcached
-      - php
-      - php{{ php_version }}-cli
-      - php{{ php_version }}-curl
-      - php{{ php_version }}-gd
-      - php{{ php_version }}-intl
-      - php{{ php_version }}-mbstring
-      - php{{ php_version }}-memcache
-      - php{{ php_version }}-opcache
-      - php{{ php_version }}-pdo
-      - php{{ php_version }}-pdo-mysql
-      - php{{ php_version }}-phar
-      - php{{ php_version }}-simplexml
-      - php{{ php_version }}-soap
-      - php{{ php_version }}-xdebug
-      - php{{ php_version }}-yaml
-      - php{{ php_version }}-zip
-      - phpunit
-
-- name: software | install php 7 packages
-  tags: php, software
-  package:
-    name:
-      - php{{ php_version }}-json
-  when: php_version >= 7 and php_version < 8
-
 - name: software | install general dev/devops packages
   tags: dev, devops, software
   package:
@@ -131,6 +86,7 @@
     name:
       - audacity
       - ffmpeg
+      - imagemagick
       - obs-studio
       - sox
       - vlc

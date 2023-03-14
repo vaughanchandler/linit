@@ -60,16 +60,13 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 These tags are subsets of the `software` tag:
 
 * `accounting` - Installs HomeBank.
-* `apache` - Installs Apache.
 * `dev` - Installs useful development packages.
 * `devops` - Installs useful devops packages.
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
-* `mysql` - Installs MySQL.
 * `network` - Installs useful networking packages.
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages.
-* `php` - Installs PHP and related packages.
 * `sshd` - Installs OpenSSH server.
 * `vbox` - Installs VirtualBox.
 
@@ -80,7 +77,6 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 * `ufw_dropbox` - Allows TCP/UDP 17500 for Dropbox (included in `ufw_common`).
 * `ufw_http` - Allows TCP 80 for HTTP.
 * `ufw_https` - Allows TCP 443 for HTTPS.
-* `ufw_mysql` - Allows TCP 3306 for MySQL.
 * `ufw_postgres` - Allows TCP 5432 for PostgreSQL.
 * `ufw_sshd` - Allows TCP 22 for SSH (included in `ufw_common`).
 * `ufw_warpinator` - Allows TCP/UDP 42000 for Warpinator (included in `ufw_common` for Linux Mint only).

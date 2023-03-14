@@ -6,6 +6,3 @@ wireshark_package: wireshark
 
 # The codebase to use with repos.
 distro_codebase: bionic
-
-# The version of PHP to install.
-distro_php_version: 7.2
