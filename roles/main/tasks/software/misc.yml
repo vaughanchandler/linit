@@ -123,7 +123,6 @@
       - hashcat
       - hydra
       - john
-      - kismet
       - slowhttptest
 
 - name: software | install general pentest packages (Archlinux-based)

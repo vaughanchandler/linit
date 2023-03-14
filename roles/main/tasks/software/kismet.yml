@@ -1,0 +1,15 @@
+---
+- name: software | kismet | add repository key
+  apt_key:
+    url: https://www.kismetwireless.net/repos/kismet-release.gpg.key
+  when: ansible_os_family == "Debian"
+
+- name: software | kismet | add repository
+  apt_repository:
+    repo: "deb https://www.kismetwireless.net/repos/apt/release/{{ distro_codebase }} {{ distro_codebase }} main"
+    filename: kismet
+  when: ansible_os_family == "Debian"
+
+- name: software | kismet | install package
+  package:
+    name: kismet
