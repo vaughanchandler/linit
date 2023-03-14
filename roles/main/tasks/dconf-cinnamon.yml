@@ -33,6 +33,16 @@
     - ["gnome/libgnomekbd/keyboard/options", "['terminate\tterminate:ctrl_alt_bksp', 'Compose key\tcompose:rwin', 'grp\tgrp:win_space_toggle']"]
     - ["cinnamon/desktop/interface/keyboard-layout-show-flags", "false"]
 
+- name: dconf-cinnamon | adjust keyboard shortcuts
+  dconf:
+    key: "/org/cinnamon/desktop/keybindings/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["media-keys/play", "['XF86AudioPlay', '<Primary>F4']"] # CTRL + F4
+    - ["media-keys/volume-down", "['XF86AudioLowerVolume', '<Primary>F2']"] # CTRL + F2
+    - ["media-keys/volume-mute", "['XF86AudioMute', '<Primary>F1']"] # CTRL + F1
+    - ["media-keys/volume-up", "['XF86AudioRaiseVolume', '<Primary>F3']"] # CTRL + F3
+
 - name: dconf-cinnamon | adjust notification settings
   dconf:
     key: "/org/cinnamon/desktop/notifications/{{ item[0] }}"
