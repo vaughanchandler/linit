@@ -1,3 +1,4 @@
+# To watch dconf for changes: `dconf watch /`
 ---
 
 - name: dconf-cinnamon | adjust date/time settings
@@ -38,10 +39,9 @@
     key: "/org/cinnamon/desktop/keybindings/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
-    - ["media-keys/play", "['XF86AudioPlay', '<Primary>F4']"] # CTRL + F4
-    - ["media-keys/volume-down", "['XF86AudioLowerVolume', '<Primary>F2']"] # CTRL + F2
-    - ["media-keys/volume-mute", "['XF86AudioMute', '<Primary>F1']"] # CTRL + F1
-    - ["media-keys/volume-up", "['XF86AudioRaiseVolume', '<Primary>F3']"] # CTRL + F3
+    - ["media-keys/volume-down", "['XF86AudioLowerVolume', '<Primary>F1']"] # CTRL + F1
+    - ["media-keys/volume-mute", "['XF86AudioMute', '<Primary><Shift>F1']"] # CTRL + SHIFT + F1
+    - ["media-keys/volume-up", "['XF86AudioRaiseVolume', '<Primary>F2']"] # CTRL + F2
 
 - name: dconf-cinnamon | adjust notification settings
   dconf:
@@ -89,7 +89,7 @@
     key: "/org/cinnamon/desktop/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
-    - ["session/idle-delay", "uint32 3600"]
+    - ["session/idle-delay", "uint32 0"]
     - ["screensaver/lock-delay", "uint32 600"]
 
 - name: dconf-cinnamon | adjust sound settings
