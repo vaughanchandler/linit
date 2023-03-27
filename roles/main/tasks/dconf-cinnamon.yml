@@ -39,6 +39,7 @@
     key: "/org/cinnamon/desktop/keybindings/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
+    - ["media-keys/play", "['XF86AudioPlay', '<Primary><Shift>F2']"] # CTRL + SHIFT + F2
     - ["media-keys/volume-down", "['XF86AudioLowerVolume', '<Primary>F1']"] # CTRL + F1
     - ["media-keys/volume-mute", "['XF86AudioMute', '<Primary><Shift>F1']"] # CTRL + SHIFT + F1
     - ["media-keys/volume-up", "['XF86AudioRaiseVolume', '<Primary>F2']"] # CTRL + F2
