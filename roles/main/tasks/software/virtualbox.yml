@@ -14,3 +14,10 @@
   package:
     name: "{{ virtualbox_package }}"
   when: ansible_os_family == "Debian"
+
+- name: software | virtualbox | add user to group
+  user:
+    name: "{{ real_user }}"
+    groups: vboxusers
+    append: yes
+  when: real_user != "root"
