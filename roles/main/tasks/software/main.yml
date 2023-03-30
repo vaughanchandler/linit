@@ -53,7 +53,7 @@
 - import_tasks: software/unetbootin.yml
   tags: packages, software
   when:
-    - ansible_distribution != 'Linux Mint' or ansible_distribution_major_version != '21' # Currently no PPA for jammy
+    - distro_codebase == "focal" # Currently no PPA for jammy
 
 - import_tasks: software/veracrypt.yml
   tags: packages, software
