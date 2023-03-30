@@ -10,6 +10,7 @@
       - dropbox
       - gimp
       - git
+      - gufw
       - htop
       - iftop
       - inkscape
