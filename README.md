@@ -26,7 +26,7 @@ To complete Ulauncher setup (if the `packages` tag was used):
 
 In a VM: `apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,genealogy,media,network,packages,swap,ufw_common,upgrade,vm`
+At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,gaming,genealogy,media,network,packages,swap,ufw_common,upgrade,vm`
 
 At work: `ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vm`
 
@@ -62,6 +62,7 @@ These tags are subsets of the `software` tag:
 * `accounting` - Installs HomeBank.
 * `ansible_ppa` - Installs Ansible's PPA (on some distros you may need to run `apt -y remove ansible && apt -y install ansible-core` after installing the PPA to get the latest version of Ansible installed).
 * `dev` - Installs useful development packages.
+* `gaming` - Installs Steam and Lutris (only tested on Pop!_OS).
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
 * `network` - Installs useful networking packages.

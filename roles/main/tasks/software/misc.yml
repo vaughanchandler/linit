@@ -54,6 +54,13 @@
       - python3-pip
       - "{{ virtualenv_package }}"
 
+- name: software | install general gaming packages
+  tags: gaming, software
+  package:
+    name:
+      - lutris
+      - steam
+
 - name: software | install general genealogy packages
   tags: genealogy, software
   package:
