@@ -62,7 +62,7 @@ These tags are subsets of the `software` tag:
 * `accounting` - Installs HomeBank.
 * `ansible_ppa` - Installs Ansible's PPA (on some distros you may need to run `apt -y remove ansible && apt -y install ansible-core` after installing the PPA to get the latest version of Ansible installed).
 * `dev` - Installs useful development packages.
-* `gaming` - Installs Steam and Lutris (only tested on Pop!_OS).
+* `gaming` - Installs Steam, Lutris and PCSX2 (only tested on Pop!_OS).
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
 * `network` - Installs useful networking packages.

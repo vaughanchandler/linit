@@ -58,7 +58,9 @@
   tags: gaming, software
   package:
     name:
+      - libgtk2.0-0:i386 # pcsx2
       - lutris
+      - pcsx2:i386
       - steam
 
 - name: software | install general genealogy packages
