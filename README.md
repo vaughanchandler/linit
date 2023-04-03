@@ -47,7 +47,7 @@ Local testing: `ansible-playbook local.yml --ask-become-pass [--tags <tags...>] 
 * `apparmor` - Enables apparmor profiles.
 * `bash` - Configures bash.
 * `data` - Configures the data partition and symlinks to it from the home folder.
-* `dconf` - Configures system settings (needs a DE tag like `cinnamon`).
+* `dconf` - Configures system settings (needs a DE tag like `cinnamon` or `gnome`).
 * `software` - Installs all software packages.
 * `ssh` - Installs SSH public keys.
 * `swap` - Creates and enables a swap file on the root partition.
@@ -85,7 +85,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 
 ### Other tags
 
-The `cinnamon` tag enables tasks which can only be performed in the Cinnamon desktop environment. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
+The `cinnamon` and `gnome` tags enable tasks which can only be performed in the Cinnamon and Gnome desktop environments respectively. These tasks may perform additional configuration related to primary tasks (eg autostarting an application), or may just carry out general desktop configuration.
 
 The `swap1` tag creates a 1GB swap file when specified on its own or with the `swap` tag, whereas the `swap` tag calculates a swap size based on Ubuntu's minimum recommendations: the square root of the total RAM in GB rounded up to the nearest 1GB, eg 4GB for a system with 16GB RAM. If you want the filesize re-calculated after running with a different tag or if you have a different amount of RAM, you'll first need to run `swapoff -a` to free /swapfile and then delete it.
 

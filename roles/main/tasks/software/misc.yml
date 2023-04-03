@@ -82,6 +82,13 @@
       - python3-svgwrite
       - sqlite3
 
+- name: software | install general gnome packages
+  tags: gnome, software
+  package:
+    name:
+      - gnome-shell-extension-manager
+      - gnome-tweaks
+
 - name: software | install general media packages
   tags: media, software
   package:

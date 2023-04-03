@@ -22,6 +22,11 @@
   tags: dconf
   when: "'cinnamon' in ansible_run_tags"
 
+- import_tasks: dconf-gnome.yml
+  become_user: "{{ real_user }}"
+  tags: dconf
+  when: "'gnome' in ansible_run_tags"
+
 - import_tasks: ufw.yml
   tags: ufw, ufw_common
 

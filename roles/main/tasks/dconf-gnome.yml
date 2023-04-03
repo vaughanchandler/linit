@@ -1,0 +1,84 @@
+# To watch dconf for changes: `dconf watch /`
+---
+
+- name: dconf-gnome | adjust date/time settings
+  dconf:
+    key: "{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["/org/gnome/desktop/interface/clock-format", "'24h'"]
+    - ["/org/gnome/desktop/interface/clock-show-seconds", "true"]
+    - ["/org/gtk/settings/file-chooser/clock-format", "'24h'"]
+
+- name: dconf-gnome | adjust desktop settings
+  dconf:
+    key: "{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["/org/gnome/desktop/wm/preferences/button-layout", "'appmenu:minimize,maximize,close'"]
+    - ["/org/gnome/shell/extensions/pop-cosmic/clock-alignment", "'RIGHT'"]
+    - ["/org/gnome/shell/extensions/pop-cosmic/show-applications-button", "false"]
+
+- name: dconf-gnome | adjust dock settings
+  dconf:
+    key: "{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size", "32"]
+    - ["/org/gnome/shell/favorite-apps", "['firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"]
+
+- name: dconf-gnome | adjust keyboard settings
+  dconf:
+    key: "{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["/org/gnome/desktop/input-sources/xkb-options", "['compose:rwin']"]
+
+- name: dconf-gnome | adjust keyboard shortcuts
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["media-keys/play", "['<Primary><Shift>F2']"] # CTRL + SHIFT + F2
+    - ["media-keys/volume-down", "['<Primary>F1']"] # CTRL + F1
+    - ["media-keys/volume-mute", "['<Primary><Shift>F1']"] # CTRL + SHIFT + F1
+    - ["media-keys/volume-up", "['<Primary>F2']"] # CTRL + F2
+
+- name: dconf-gnome | adjust media shortcuts
+  dconf:
+    key: "/org/gnome/desktop/sound/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["allow-volume-above-100-percent", "true"]
+
+- name: dconf-gnome | adjust privacy settings
+  dconf:
+    key: "/org/gnome/desktop/privacy/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["remember-recent-files", "false"]
+    - ["remove-old-temp-files", "true"]
+    - ["remove-old-trash-files", "true"]
+
+- name: dconf-gnome | adjust removable media settings
+  dconf:
+    key: "/org/gnome/desktop/media-handling/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["autorun-never", "true"]
+
+- name: dconf-gnome | adjust security settings
+  dconf:
+    key: "/org/gnome/desktop/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["session/idle-delay", "uint32 0"]
+    - ["screensaver/lock-delay", "uint32 1800"]
+
+- name: dconf-gnome | adjust window settings
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["action-middle-click-titlebar", "'lower'"]
+    - ["mouse-button-modifier", "'<Alt>'"]
