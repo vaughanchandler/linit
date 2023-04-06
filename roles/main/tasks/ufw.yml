@@ -86,6 +86,25 @@
   loop: "{{ trusted_ips }}"
   when: "'ufw_sshd' in ansible_run_tags or 'ufw_common' in ansible_run_tags"
 
+- name: ufw | allow syncthing (discovery)
+  tags: ufw_syncthing
+  ufw:
+    rule: allow
+    proto: udp
+    port: '21027'
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_syncthing' in ansible_run_tags"
+
+- name: ufw | allow syncthing (sync)
+  tags: ufw_syncthing
+  ufw:
+    rule: allow
+    port: '22000'
+    src: '{{ item }}'
+  loop: "{{ trusted_ips }}"
+  when: "'ufw_syncthing' in ansible_run_tags"
+
 - name: ufw | allow warpinator
   tags: ufw_common, ufw_warpinator
   ufw:

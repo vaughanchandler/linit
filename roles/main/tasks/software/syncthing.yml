@@ -1,0 +1,21 @@
+---
+- name: software | syncthing | add repository key
+  apt_key:
+    url: https://syncthing.net/release-key.gpg
+  when: ansible_os_family == "Debian"
+
+- name: software | syncthing | add repository
+  apt_repository:
+    repo: "deb https://apt.syncthing.net/ syncthing stable"
+    filename: syncthing
+  when: ansible_os_family == "Debian"
+
+- name: software | syncthing | install package
+  package:
+    name: syncthing
+
+- name: software | syncthing | start/enable service as {{ real_user }}
+  service:
+    name: syncthing@{{ real_user }}.service
+    state: started
+    enabled: yes

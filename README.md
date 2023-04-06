@@ -26,9 +26,9 @@ To complete Ulauncher setup (if the `packages` tag was used):
 
 In a VM: `apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,gaming,genealogy,media,network,packages,swap,ufw_common,upgrade,vm`
+At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,gaming,genealogy,media,network,packages,swap,sync,ufw_common,ufw_syncthing,upgrade,vm`
 
-At work: `ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,media,network,packages,ssh,sshd,swap,ufw_common,upgrade,vm`
+At work: `ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,media,network,packages,ssh,sshd,swap,sync,ufw_common,ufw_syncthing,upgrade,vm`
 
 ### Variables
 
@@ -69,6 +69,7 @@ These tags are subsets of the `software` tag:
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages (you'll probably want the `network` tag also).
 * `sshd` - Installs OpenSSH server.
+* `sync` - Installs Syncthing.
 * `vm` - Installs Vagrant and VirtualBox.
 
 These tags can be used for allowing inbound traffic through the firewall (`ufw` or `ufw_common` must still be used to enable UFW):
@@ -81,6 +82,7 @@ These tags can be used for allowing inbound traffic through the firewall (`ufw` 
 * `ufw_mysql` - Allows TCP 3306 for MySQL.
 * `ufw_postgres` - Allows TCP 5432 for PostgreSQL.
 * `ufw_sshd` - Allows TCP 22 for SSH (included in `ufw_common`).
+* `ufw_syncthing` - Allows TCP/UDP 22000 and UDP 21027 for Syncthing.
 * `ufw_warpinator` - Allows TCP/UDP 42000 for Warpinator (included in `ufw_common` for Linux Mint only).
 
 ### Other tags
