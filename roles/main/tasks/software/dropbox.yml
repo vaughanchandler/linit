@@ -1,0 +1,14 @@
+---
+- name: software | dropbox | install flatpak
+  become: no
+  community.general.flatpak:
+    name: com.dropbox.Client
+    method: user
+  when: ansible_distribution == 'Pop!_OS'
+
+- name: software | dropbox | install package
+  package:
+    name:
+      - dropbox
+      - python3-gpg
+  when: ansible_distribution == 'Linux Mint'

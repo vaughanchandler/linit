@@ -7,7 +7,6 @@
     name:
       - aria2
       - clusterssh
-      - dropbox
       - gimp
       - git
       - gufw
@@ -24,7 +23,6 @@
       - pavucontrol
       - pigz
       - pv
-      - python3-gpg # for Dropbox installer
       - qpdf
       - remmina
       - remmina-plugin-rdp
