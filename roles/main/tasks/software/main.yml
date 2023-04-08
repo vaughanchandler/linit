@@ -26,6 +26,9 @@
 - import_tasks: software/ip4.yml
   tags: network, software
 
+- import_tasks: software/joplin.yml
+  tags: notes, software
+
 - import_tasks: software/keepassxc.yml
   tags: packages, software
 

@@ -26,7 +26,7 @@ To complete Ulauncher setup (if the `packages` tag was used):
 
 In a VM: `apparmor,bash,cinnamon,dconf,network,packages,ssh,sshd,upgrade`
 
-At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,gaming,genealogy,media,network,packages,swap,sync,ufw_common,ufw_syncthing,upgrade,vm`
+At home: `accounting,ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,gaming,genealogy,media,network,notes,packages,swap,sync,ufw_common,ufw_syncthing,upgrade,vm`
 
 At work: `ansible_ppa,apparmor,bash,cinnamon,data,dconf,dev,media,network,packages,ssh,sshd,swap,sync,ufw_common,ufw_syncthing,upgrade,vm`
 
@@ -65,6 +65,7 @@ These tags are subsets of the `software` tag:
 * `gaming` - Installs Steam, Lutris and PCSX2 (only tested on Pop!_OS).
 * `genealogy` - Installs Gramps and libraries it uses.
 * `media` - Installs useful audio/video packages.
+* `notes` - Installs Joplin.
 * `network` - Installs useful networking packages.
 * `packages` - Installs general packages that don't fall into another group.
 * `pentest` - Installs useful penetration testing packages (you'll probably want the `network` tag also).

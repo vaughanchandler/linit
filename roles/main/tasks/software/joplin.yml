@@ -1,0 +1,15 @@
+---
+
+- name: software | joplin | install flatpak on pop os
+  become: no
+  community.general.flatpak:
+    name: net.cozic.joplin_desktop
+    method: user
+  when: ansible_distribution == 'Pop!_OS'
+
+- name: software | joplin | install flatpak on mint
+  become: no
+  community.general.flatpak:
+    name: net.cozic.joplin_desktop
+    method: system
+  when: ansible_distribution == 'Linux Mint'
