@@ -1,6 +1,6 @@
 # Linit
 
-Ansible config for my computers. Should work on Debian-based distros, but only tested on Linux Mint 20 and 21 (and only recently on 21).
+Ansible config for my computers. Should work on Debian-based distros, but only tested on Linux Mint 20 and 21 with Cinnamon and Pop!_OS 22.04 LTS with Gnome.
 
 Draws from [LearnLinuxTV](https://github.com/LearnLinuxTV/personal_ansible_desktop_configs).
 
