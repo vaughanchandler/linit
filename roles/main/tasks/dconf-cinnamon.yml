@@ -36,13 +36,16 @@
 
 - name: dconf-cinnamon | adjust keyboard shortcuts
   dconf:
-    key: "/org/cinnamon/desktop/keybindings/{{ item[0] }}"
+    key: "/org/cinnamon/desktop/keybindings/media-keys/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
-    - ["media-keys/play", "['XF86AudioPlay', '<Primary><Shift>F2']"] # CTRL + SHIFT + F2
-    - ["media-keys/volume-down", "['XF86AudioLowerVolume', '<Primary>F1']"] # CTRL + F1
-    - ["media-keys/volume-mute", "['XF86AudioMute', '<Primary><Shift>F1']"] # CTRL + SHIFT + F1
-    - ["media-keys/volume-up", "['XF86AudioRaiseVolume', '<Primary>F2']"] # CTRL + F2
+    - ["home", "['<Super>e', 'XF86Explorer', '<Super>f']"]
+    - ["play", "['XF86AudioPlay', '<Super>F4']"]
+    - ["terminal", "['<Primary><Alt>t', '<Super>t']"]
+    - ["volume-down", "['XF86AudioLowerVolume', '<Super>F2']"]
+    - ["volume-mute", "['XF86AudioMute', '<Super>F1']"]
+    - ["volume-up", "['XF86AudioRaiseVolume', '<Super>F3']"]
+    - ["www", "['XF86WWW', '<Super>b']"]
 
 - name: dconf-cinnamon | adjust notification settings
   dconf:

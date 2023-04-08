@@ -98,3 +98,5 @@ Some tags were tested successfully with Manjaro 20.2.1 using an older version of
 # Troubleshooting
 
 If the git settings aren't working, you may be affected by a bug which wraps the setting values in quotes. Edit /etc/gitconfig and remove the relevant quotes.
+
+If dconf settings aren't working, you may be affected by a bug which prevents new keys from being created. Download an updated copy of [dconf.py](https://raw.githubusercontent.com/jikamens/community.general/a37589cebd5d6ca1b0e1ea963c0ed26eb5019f7b/plugins/modules/dconf.py) and put it in a new `library` folder in the root of this repo, then run the playbook again.

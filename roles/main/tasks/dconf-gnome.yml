@@ -34,15 +34,29 @@
   loop:
     - ["/org/gnome/desktop/input-sources/xkb-options", "['compose:rwin']"]
 
-- name: dconf-gnome | adjust keyboard shortcuts
+- name: dconf-gnome | adjust media-keys keyboard shortcuts
   dconf:
-    key: "/org/gnome/settings-daemon/plugins/{{ item[0] }}"
+    key: "/org/gnome/settings-daemon/plugins/media-keys/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
-    - ["media-keys/play", "['<Primary><Shift>F2']"] # CTRL + SHIFT + F2
-    - ["media-keys/volume-down", "['<Primary>F1']"] # CTRL + F1
-    - ["media-keys/volume-mute", "['<Primary><Shift>F1']"] # CTRL + SHIFT + F1
-    - ["media-keys/volume-up", "['<Primary>F2']"] # CTRL + F2
+    - ["email", "@as []"]
+    - ["help", "@as []"]
+    - ["home", "['<Super>f', '<Super>e']"]
+    - ["play", "['<Super>F4']"]
+    - ["terminal", "['<Super>t', '<Primary><Alt>t']"]
+    - ["volume-down", "['<Super>F2']"]
+    - ["volume-mute", "['<Super>F1']"]
+    - ["volume-up", "['<Super>F3']"]
+
+- name: dconf-gnome | adjust window manager keyboard shortcuts
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/{{ item[0] }}"
+    value: "{{ item[1] }}"
+  loop:
+    - ["switch-windows", "['<Alt>Tab']"]
+    - ["switch-windows-backward", "['<Shift><Alt>Tab']"]
+    - ["switch-applications", "['<Super>Tab']"]
+    - ["switch-applications-backward", "['<Shift><Super>Tab']"]
 
 - name: dconf-gnome | adjust media shortcuts
   dconf:
