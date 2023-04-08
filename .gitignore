@@ -1,0 +1,5 @@
+# For if you need to override an Ansible module locally.
+/library/
+
+# For any arbitrary files you need.
+/local/
