@@ -40,6 +40,12 @@
       - apparmor-utils
   when: ansible_os_family == "Debian"
 
+- name: software | install general aws packages
+  tags: aws, software
+  package:
+    name:
+      - awscli
+
 - name: software | install general dev packages
   tags: dev, software
   package:
