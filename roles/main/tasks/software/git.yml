@@ -31,6 +31,8 @@
     - {name: "alias.hf", value: "flow hotfix finish"}
     - {name: "alias.l", value: "log"}
     - {name: "alias.l1", value: "log --oneline"}
+    - {name: "alias.ld", value: "log develop..HEAD --no-merges"}
+    - {name: "alias.ld1", value: "log develop..HEAD --no-merges --oneline"}
     - {name: "alias.lg", value: "log --oneline --graph"}
     - {name: "alias.s", value: "status --short"}
     - {name: "alias.ss", value: "status"}
