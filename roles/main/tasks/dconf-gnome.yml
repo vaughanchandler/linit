@@ -33,6 +33,7 @@
     value: "{{ item[1] }}"
   loop:
     - ["/org/gnome/desktop/input-sources/xkb-options", "['compose:rwin']"]
+    - ["/org/gnome/shell/extensions/pop-shell/fullscreen-launcher", "true"]
 
 - name: dconf-gnome | adjust media-keys keyboard shortcuts
   dconf:
