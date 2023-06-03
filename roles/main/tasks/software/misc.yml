@@ -7,6 +7,7 @@
     name:
       - aria2
       - clusterssh
+      - flameshot
       - gimp
       - git
       - gufw
