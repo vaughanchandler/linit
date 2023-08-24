@@ -7,6 +7,7 @@
     name:
       - aria2
       - clusterssh
+      - flameshot
       - gimp
       - git
       - gufw
@@ -153,12 +154,6 @@
   package:
     name:
       - "{{ ssh_package }}"
-
-- name: software | install general vm packages
-  tags: vm, software
-  package:
-    name:
-      - vagrant
 
 - name: software | configure vim
   tags: dev, software

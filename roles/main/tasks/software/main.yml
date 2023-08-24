@@ -67,6 +67,9 @@
   when:
     - distro_codebase == "focal" # Currently no PPA for jammy
 
+- import_tasks: software/vagrant.yml
+  tags: vm, software
+
 - import_tasks: software/veracrypt.yml
   tags: packages, software
 
