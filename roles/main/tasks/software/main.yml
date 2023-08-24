@@ -20,6 +20,9 @@
 - import_tasks: software/gitrelease.yml
   tags: dev, software
 
+- import_tasks: software/geo.yml
+  tags: network, software
+
 - import_tasks: software/google_chrome.yml
   tags: packages, software
 

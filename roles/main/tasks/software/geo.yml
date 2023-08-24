@@ -1,0 +1,8 @@
+---
+- name: software | geo | copy script
+  copy:
+    src: usr_local_bin/geo.sh
+    dest: /usr/local/bin/geo
+    owner: root
+    group: root
+    mode: '0755'
