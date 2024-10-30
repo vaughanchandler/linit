@@ -57,7 +57,14 @@
       - nodejs
       - npm
       - python3-pip
-      - "{{ virtualenv_package }}"
+
+- name: software | install general dev packages (Debian-based)
+  tags: dev, software
+  package:
+    name:
+      - default-libmysqlclient-dev
+      - python3-venv
+  when: ansible_os_family == "Debian"
 
 - name: software | install general gaming packages
   tags: gaming, software

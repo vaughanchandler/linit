@@ -1,7 +1,6 @@
 # Package names.
 ettercap_package: ettercap-gtk
 ssh_package: openssh
-virtualenv_package: python-virtualenv
 wireshark_package: wireshark-qt
 
 # The codebase to use with repos.
