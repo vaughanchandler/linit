@@ -117,3 +117,7 @@
       alias ffmpeg='ffmpeg -hide_banner'
       alias ffprobe='ffprobe -hide_banner'
       alias vlc-all-audio='vlc --sout-all --sout "#display"'
+
+      # General Dev
+      alias activate='source venv/bin/activate'
+      alias d='cd dev/docker'
