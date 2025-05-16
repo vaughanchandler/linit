@@ -28,3 +28,9 @@
     - [GUI, MinimizeToTray, 'true']
     - [GUI, ShowTrayIcon, 'true']
     - [Security, ClearClipboardTimeout, '300']
+
+- name: software | keepassxc | set permissions
+  file:
+    path: "{{ real_home }}/.config/keepassxc/"
+    owner: "{{ real_user }}"
+    group: "{{ real_group }}"
