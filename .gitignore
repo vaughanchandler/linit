@@ -3,3 +3,6 @@
 
 # For any arbitrary files you need.
 /local/
+
+# Python virtual environment
+/venv/
