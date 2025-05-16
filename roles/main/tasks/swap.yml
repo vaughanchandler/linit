@@ -18,7 +18,8 @@
   command: swapon -a
   when: ansible_swaptotal_mb < 1
 
-- name: swap | set swappiness to 25
+- name: swap | set swappiness to 20
   sysctl:
     name: vm.swappiness
-    value: '25'
+    value: '20'
+    reload: yes
