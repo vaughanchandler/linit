@@ -2,9 +2,6 @@
 
 - import_tasks: software/misc.yml
 
-- import_tasks: software/ansible.yml
-  tags: software, ansible_ppa
-
 - import_tasks: software/barrier.yml
   tags: software, packages, barrier
 
