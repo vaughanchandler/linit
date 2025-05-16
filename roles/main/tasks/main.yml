@@ -28,7 +28,7 @@
   when: "'gnome' in ansible_run_tags"
 
 - import_tasks: ufw.yml
-  tags: ufw, ufw_common
+  tags: ufw
 
 - import_tasks: data.yml
   tags: data

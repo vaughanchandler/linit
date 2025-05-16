@@ -28,13 +28,13 @@
   when: "'ufw_dns' in ansible_run_tags"
 
 - name: ufw | allow dropbox
-  tags: ufw_common, ufw_dropbox
+  tags: ufw_dropbox
   ufw:
     rule: allow
     port: '17500'
     src: '{{ item }}'
   loop: "{{ trusted_ips }}"
-  when: "'ufw_dropbox' in ansible_run_tags or 'ufw_common' in ansible_run_tags"
+  when: "'ufw_dropbox' in ansible_run_tags"
 
 - name: ufw | allow http
   tags: ufw_http
@@ -77,14 +77,14 @@
   when: "'ufw_postgres' in ansible_run_tags"
 
 - name: ufw | allow ssh
-  tags: ufw_common, ufw_sshd
+  tags: ufw_sshd
   ufw:
     rule: limit
     port: '22'
     proto: tcp
     src: '{{ item }}'
   loop: "{{ trusted_ips }}"
-  when: "'ufw_sshd' in ansible_run_tags or 'ufw_common' in ansible_run_tags"
+  when: "'ufw_sshd' in ansible_run_tags"
 
 - name: ufw | allow syncthing (discovery)
   tags: ufw_syncthing
@@ -106,10 +106,10 @@
   when: "'ufw_syncthing' in ansible_run_tags"
 
 - name: ufw | allow warpinator
-  tags: ufw_common, ufw_warpinator
+  tags: ufw_warpinator
   ufw:
     rule: allow
     port: '42000'
     src: '{{ item }}'
   loop: "{{ trusted_ips }}"
-  when: "'ufw_warpinator' in ansible_run_tags or ('ufw_common' in ansible_run_tags and ansible_distribution == 'Linux Mint')"
+  when: "'ufw_warpinator' in ansible_run_tags"
