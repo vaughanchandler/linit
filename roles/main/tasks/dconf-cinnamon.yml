@@ -59,6 +59,7 @@
     key: "/org/cinnamon/{{ item[0] }}"
     value: "{{ item[1] }}"
   loop:
+    - ["panels-autohide", "['1:true']"]
     - ["panels-height", "['1:32']"]
 
 - name: dconf-cinnamon | adjust power settings
