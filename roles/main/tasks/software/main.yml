@@ -3,75 +3,75 @@
 - import_tasks: software/misc.yml
 
 - import_tasks: software/ansible.yml
-  tags: ansible_ppa, software
+  tags: software, ansible_ppa
 
 - import_tasks: software/barrier.yml
-  tags: packages, software
+  tags: software, packages, barrier
 
 - import_tasks: software/docker.yml
-  tags: dev, software
+  tags: software, dev, docker
 
 - import_tasks: software/dropbox.yml
-  tags: packages, software
+  tags: software, packages, dropbox
 
 - import_tasks: software/git.yml
-  tags: dev, software
+  tags: software, dev, git
 
 - import_tasks: software/gitrelease.yml
-  tags: dev, software
+  tags: software, dev
 
 - import_tasks: software/geo.yml
-  tags: network, software
+  tags: software, network
 
 - import_tasks: software/google_chrome.yml
-  tags: packages, software
+  tags: software, packages, google_chrome
 
 - import_tasks: software/homebank.yml
-  tags: accounting, software
+  tags: software, accounting, homebank
 
 - import_tasks: software/ip4.yml
-  tags: network, software
+  tags: software, network
 
 - import_tasks: software/joplin.yml
-  tags: notes, software
+  tags: software, notes, joplin
 
 - import_tasks: software/keepassxc.yml
-  tags: packages, software
+  tags: software, packages, keepassxc
 
 - import_tasks: software/kismet.yml
-  tags: pentest, software
+  tags: software, pentest, kismet
 
 - import_tasks: software/media.yml
-  tags: media, software
+  tags: software, media
 
 - import_tasks: software/qbittorrent.yml
-  tags: packages, software
+  tags: software, packages, qbittorrent
 
 - import_tasks: software/solaar.yml
-  tags: packages, software
+  tags: software, packages, solaar
 
 - import_tasks: software/sublimetext.yml
-  tags: packages, software
+  tags: software, packages, sublimetext
 
 - import_tasks: software/syncthing.yml
-  tags: sync, software
+  tags: software, sync, syncthing
 
 - import_tasks: software/ulauncher.yml
-  tags: packages, software
+  tags: software, packages, ulauncher
 
 - import_tasks: software/unetbootin.yml
-  tags: packages, software
+  tags: software, packages, unetbootin
   when:
     - distro_codebase == "focal" # Currently no PPA for jammy
 
 - import_tasks: software/vagrant.yml
-  tags: vm, software
+  tags: software, vm, vagrant
 
 - import_tasks: software/veracrypt.yml
-  tags: packages, software
+  tags: software, packages, veracrypt
 
 - import_tasks: software/virtualbox.yml
-  tags: vm, software
+  tags: software, vm, virtualbox
 
 - import_tasks: software/vscode.yml
-  tags: dev, software
+  tags: software, dev, vscode
