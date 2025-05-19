@@ -41,6 +41,9 @@
 - import_tasks: software/media.yml
   tags: software, media
 
+- import_tasks: software/precommit.yml
+  tags: software, dev, precommit
+
 - import_tasks: software/qbittorrent.yml
   tags: software, packages, qbittorrent
 

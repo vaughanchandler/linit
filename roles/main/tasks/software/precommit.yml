@@ -1,0 +1,13 @@
+- name: software | precommit | run pipx ensurepath
+  ansible.builtin.command:
+    cmd: pipx ensurepath
+  become: yes
+  become_user: "{{ real_user }}"
+  changed_when: false
+
+- name: software | precommit | install general dev packages (pipx)
+  community.general.pipx:
+    executable: pipx
+    name: pre-commit
+  become: yes
+  become_user: "{{ real_user }}"

@@ -89,6 +89,7 @@ There are also tags for individual pieces of software that have their own tasks:
 * `joplin`
 * `keepassxc`
 * `kismet`
+* `precommit`
 * `qbittorrent`
 * `solaar`
 * `sublimetext`
