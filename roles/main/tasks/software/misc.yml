@@ -131,6 +131,7 @@
     name:
       - aircrack-ng
       - arp-scan
+      - crunch
       - "{{ ettercap_package }}"
       - hashcat
       - httrack
