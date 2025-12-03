@@ -23,6 +23,7 @@
   package:
     name:
       - docker-compose
+      - docker-compose-plugin
       - docker
   notify:
     - restart docker
